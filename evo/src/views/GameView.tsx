@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import Board from '../components/Board';
 import PlayerBoard from '../components/PlayerBoard';
+import PlayerController from '../components/PlayerController.tsx';
 import { useGameStore } from '../store/GameStore';
 import './GameView.css';
 
@@ -9,13 +10,22 @@ const GameView: React.FC = () => {
     const { state, dispatch } = useGameStore();
 
     // 页面加载时自动初始化游戏
-    useEffect(() => {
-        dispatch({ type: 'INIT_GAME' });
-    }, [dispatch]);
-
-    const restartGame = () => {
+    const startGame = () => {
         dispatch({ type: 'INIT_GAME' });
     };
+
+    const gameOver = () => {
+        window.location.reload();
+    };
+
+    if (!state.hasStarted) {
+        return (
+            <div className="start-screen">
+                <h1>EvoCapture</h1>
+                <button onClick={startGame}>Start Game</button>
+            </div>
+        );
+    }
 
     return (
         <div className="game-view">
@@ -23,6 +33,8 @@ const GameView: React.FC = () => {
                 <Board />
             </div>
             <div className="action-container">
+                {/* 玩家流转控制器 */}
+                <PlayerController />
                 <div className="players-container">
                     {state.players.map((player) => (
                         <PlayerBoard key={player.id} player={player} />
@@ -30,12 +42,13 @@ const GameView: React.FC = () => {
                 </div></div>
 
             {state.isGameOver && (
-                <div className="game-over">
-                    <p>游戏结束</p>
-                    <button onClick={restartGame}>重新开始</button>
+                < div className="game-over">
+                    <div>{state.players[state.currentPlayerIndex].name} 是真正的精灵大师</div>
+                    <button onClick={gameOver}>游戏结束 再来一局</button>
                 </div>
-            )}
-        </div>
+            )
+            }
+        </div >
     );
 };
 

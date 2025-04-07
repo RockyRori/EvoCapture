@@ -3,7 +3,12 @@
             "id": 1,
             "level": 1,
             "cost": {
-                "fire": 2
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 2,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 0,
@@ -14,8 +19,12 @@
             "id": 2,
             "level": 1,
             "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 1,
                 "fire": 1,
-                "water": 1
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "fire",
             "rewardGemCount": 1,
@@ -26,7 +35,12 @@
             "id": 3,
             "level": 1,
             "cost": {
-                "fire": 2
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 2,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 2,
@@ -37,8 +51,12 @@
             "id": 4,
             "level": 1,
             "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 1,
                 "fire": 1,
-                "water": 1
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "fire",
             "rewardGemCount": 3,
@@ -49,7 +67,12 @@
             "id": 5,
             "level": 1,
             "cost": {
-                "fire": 2
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 2,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 1,
@@ -60,8 +83,12 @@
             "id": 6,
             "level": 1,
             "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 1,
                 "fire": 1,
-                "water": 1
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "fire",
             "rewardGemCount": 1,
@@ -72,7 +99,12 @@
             "id": 7,
             "level": 1,
             "cost": {
-                "fire": 2
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 2,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 1,
@@ -83,8 +115,12 @@
             "id": 8,
             "level": 1,
             "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 1,
                 "fire": 1,
-                "water": 1
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "fire",
             "rewardGemCount": 1,
@@ -95,7 +131,12 @@
             "id": 9,
             "level": 1,
             "cost": {
-                "fire": 2
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 2,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 1,
@@ -106,8 +147,12 @@
             "id": 10,
             "level": 1,
             "cost": {
-                "fire": 1,
-                "water": 1
+                "metal": 0,
+                "wood": 0,
+                "water": 1,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "fire",
             "rewardGemCount": 1,
@@ -119,7 +164,12 @@
             "id": 1,
             "level": 2,
             "cost": {
-                "water": 3
+                "metal": 0,
+                "wood": 0,
+                "water": 3,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 2,
@@ -130,8 +180,12 @@
             "id": 2,
             "level": 2,
             "cost": {
+                "metal": 0,
+                "wood": 1,
                 "water": 2,
-                "wood": 1
+                "fire": 0,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "wood",
             "rewardGemCount": 1,
@@ -142,7 +196,12 @@
             "id": 3,
             "level": 2,
             "cost": {
-                "water": 3
+                "metal": 0,
+                "wood": 0,
+                "water": 3,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 0,
@@ -153,8 +212,12 @@
             "id": 4,
             "level": 2,
             "cost": {
+                "metal": 0,
+                "wood": 1,
                 "water": 2,
-                "wood": 1
+                "fire": 0,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "wood",
             "rewardGemCount": 1,
@@ -165,7 +228,12 @@
             "id": 5,
             "level": 2,
             "cost": {
-                "water": 3
+                "metal": 0,
+                "wood": 0,
+                "water": 3,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "metal",
             "rewardGemCount": 1,
@@ -176,8 +244,12 @@
             "id": 6,
             "level": 2,
             "cost": {
+                "metal": 0,
+                "wood": 1,
                 "water": 2,
-                "wood": 1
+                "fire": 0,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "wood",
             "rewardGemCount": 1,
@@ -188,7 +260,12 @@
             "id": 7,
             "level": 2,
             "cost": {
-                "water": 3
+                "metal": 0,
+                "wood": 0,
+                "water": 3,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "metal",
             "rewardGemCount": 1,
@@ -199,8 +276,12 @@
             "id": 8,
             "level": 2,
             "cost": {
+                "metal": 0,
+                "wood": 1,
                 "water": 2,
-                "wood": 1
+                "fire": 0,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "wood",
             "rewardGemCount": 1,
@@ -211,7 +292,12 @@
             "id": 9,
             "level": 2,
             "cost": {
-                "water": 3
+                "metal": 0,
+                "wood": 0,
+                "water": 3,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 1,
@@ -222,8 +308,12 @@
             "id": 10,
             "level": 2,
             "cost": {
+                "metal": 0,
+                "wood": 1,
                 "water": 2,
-                "wood": 1
+                "fire": 0,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "wood",
             "rewardGemCount": 1,
@@ -235,8 +325,12 @@
             "id": 1,
             "level": 3,
             "cost": {
+                "metal": 0,
+                "wood": 3,
+                "water": 0,
                 "fire": 2,
-                "wood": 3
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "fire",
             "rewardGemCount": 2,
@@ -247,8 +341,12 @@
             "id": 2,
             "level": 3,
             "cost": {
+                "metal": 0,
+                "wood": 2,
+                "water": 0,
                 "fire": 3,
-                "wood": 2
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 2,
@@ -259,8 +357,12 @@
             "id": 3,
             "level": 3,
             "cost": {
+                "metal": 0,
+                "wood": 3,
+                "water": 0,
                 "fire": 2,
-                "wood": 3
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "fire",
             "rewardGemCount": 3,
@@ -271,8 +373,12 @@
             "id": 4,
             "level": 3,
             "cost": {
+                "metal": 0,
+                "wood": 2,
+                "water": 0,
                 "fire": 3,
-                "wood": 2
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 1,
@@ -283,8 +389,12 @@
             "id": 5,
             "level": 3,
             "cost": {
+                "metal": 0,
+                "wood": 3,
+                "water": 0,
                 "fire": 2,
-                "wood": 3
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "fire",
             "rewardGemCount": 1,
@@ -295,8 +405,12 @@
             "id": 6,
             "level": 3,
             "cost": {
+                "metal": 0,
+                "wood": 2,
+                "water": 0,
                 "fire": 3,
-                "wood": 2
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 1,
@@ -307,8 +421,12 @@
             "id": 7,
             "level": 3,
             "cost": {
+                "metal": 0,
+                "wood": 3,
+                "water": 0,
                 "fire": 2,
-                "wood": 3
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "fire",
             "rewardGemCount": 1,
@@ -319,8 +437,12 @@
             "id": 8,
             "level": 3,
             "cost": {
+                "metal": 0,
+                "wood": 2,
+                "water": 0,
                 "fire": 3,
-                "wood": 2
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 1,
@@ -331,8 +453,12 @@
             "id": 9,
             "level": 3,
             "cost": {
+                "metal": 0,
+                "wood": 3,
+                "water": 0,
                 "fire": 2,
-                "wood": 3
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "fire",
             "rewardGemCount": 1,
@@ -343,8 +469,12 @@
             "id": 10,
             "level": 3,
             "cost": {
+                "metal": 0,
+                "wood": 2,
+                "water": 0,
                 "fire": 3,
-                "wood": 2
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 1,
@@ -356,10 +486,12 @@
             "id": 1,
             "level": 9,
             "cost": {
-                "special": 1,
-                "fire": 4,
+                "metal": 0,
+                "wood": 2,
                 "water": 3,
-                "wood": 2
+                "fire": 4,
+                "earth": 0,
+                "special": 1
             },
             "rewardGemType": "metal",
             "rewardGemCount": 2,
@@ -370,10 +502,12 @@
             "id": 2,
             "level": 9,
             "cost": {
-                "special": 1,
-                "fire": 5,
+                "metal": 0,
+                "wood": 3,
                 "water": 4,
-                "wood": 3
+                "fire": 5,
+                "earth": 0,
+                "special": 1
             },
             "rewardGemType": "earth",
             "rewardGemCount": 3,
@@ -384,10 +518,12 @@
             "id": 3,
             "level": 9,
             "cost": {
-                "fire": 4,
-                "water": 3,
+                "metal": 1,
                 "wood": 2,
-                "metal": 1
+                "water": 3,
+                "fire": 4,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "earth",
             "rewardGemCount": 1,
@@ -398,9 +534,12 @@
             "id": 4,
             "level": 9,
             "cost": {
-                "fire": 5,
+                "metal": 0,
+                "wood": 3,
                 "water": 4,
-                "wood": 3
+                "fire": 5,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "earth",
             "rewardGemCount": 1,
@@ -411,10 +550,12 @@
             "id": 5,
             "level": 9,
             "cost": {
-                "fire": 4,
-                "water": 3,
+                "metal": 1,
                 "wood": 2,
-                "metal": 1
+                "water": 3,
+                "fire": 4,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "earth",
             "rewardGemCount": 1,
@@ -425,9 +566,12 @@
             "id": 6,
             "level": 9,
             "cost": {
-                "fire": 5,
+                "metal": 0,
+                "wood": 3,
                 "water": 4,
-                "wood": 3
+                "fire": 5,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "earth",
             "rewardGemCount": 1,
@@ -438,10 +582,12 @@
             "id": 7,
             "level": 9,
             "cost": {
-                "fire": 4,
-                "water": 3,
+                "metal": 1,
                 "wood": 2,
-                "metal": 1
+                "water": 3,
+                "fire": 4,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "earth",
             "rewardGemCount": 1,
@@ -452,9 +598,12 @@
             "id": 8,
             "level": 9,
             "cost": {
-                "fire": 5,
+                "metal": 0,
+                "wood": 3,
                 "water": 4,
-                "wood": 3
+                "fire": 5,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "earth",
             "rewardGemCount": 1,
@@ -465,10 +614,12 @@
             "id": 9,
             "level": 9,
             "cost": {
-                "fire": 4,
-                "water": 3,
+                "metal": 1,
                 "wood": 2,
-                "metal": 1
+                "water": 3,
+                "fire": 4,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "earth",
             "rewardGemCount": 1,
@@ -479,9 +630,12 @@
             "id": 10,
             "level": 9,
             "cost": {
-                "fire": 5,
+                "metal": 0,
+                "wood": 3,
                 "water": 4,
-                "wood": 3
+                "fire": 5,
+                "earth": 0,
+                "special": 0
             },
             "rewardGemType": "earth",
             "rewardGemCount": 1,

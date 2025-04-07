@@ -1,0 +1,18 @@
+/* src/components/PlayerController.css */
+.player-controller {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.controller-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.controller-buttons button {
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+    cursor: pointer;
+}
