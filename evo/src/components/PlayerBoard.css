@@ -1,12 +1,52 @@
 .player-board {
     border: 1px solid #ccc;
     padding: 8px;
-    width: 200px;
-    min-height: 200px;
+    width: 120px;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+.player-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: left;
+}
+
+.player-name {
+    font-size: 24px;
+    color: #ffd700;
+    /* 金色 */
+    text-shadow:
+        0 0 2px rgba(0, 0, 0, 0.5),
+        0 0 4px rgba(255, 215, 0, 0.3);
+    /* 发光效果 */
+    position: relative;
+}
+
+.player-image {
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    display: block;
 }
 
 .tokens {
-    margin-bottom: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: left;
+}
+
+.owned-gem {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 4px;
 }
 
 .cards-owned {

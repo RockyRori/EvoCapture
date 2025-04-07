@@ -4,7 +4,7 @@ import { useGameStore } from '../store/GameStore';
 import type { Card as CardModel } from '../models/Card';
 import './Card.css';
 
-// 1. 定义宝石类型到颜色的映射表
+// 定义宝石类型到颜色的映射表
 const gemColors: Record<string, string> = {
     metal: '#C0C0C0',
     wood: '#4CAF50',

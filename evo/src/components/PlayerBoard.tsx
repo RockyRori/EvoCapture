@@ -1,8 +1,17 @@
 import React from 'react';
 import type { Player } from '../models/Player';
 import { useGameStore } from '../store/GameStore';
-import TokenComponent from './Token';
 import './PlayerBoard.css';
+
+// 定义宝石类型到颜色的映射表
+const gemColors: Record<string, string> = {
+    metal: '#C0C0C0',
+    wood: '#4CAF50',
+    water: '#1E90FF',
+    fire: '#FF7F7F',
+    earth: '#FFD700',
+    special: '#7E0478'
+};
 
 interface PlayerBoardProps {
     player: Player;
@@ -14,30 +23,31 @@ const PlayerBoard: React.FC<PlayerBoardProps> = ({ player }) => {
         dispatch({ type: 'PICK_TOKENS', payload: [tokenType] });
     };
     return (
-        <div className="board">
-            <div className="tokens-pool">
-                {state.tokensPool.map((token) => (
-                    <TokenComponent key={token.type} token={token} onPick={onPickToken} />
-                ))}
+        <div className="player-board">
+            <div className="player-header">
+                <div className="player-name">{player.name}: {player.points}<img src={player.avatar} alt="player-avatar" className="player-image" /></div>
             </div>
-            <div className="player-board">
-
-
-                <h2>
-                    {player.name} (得分: {player.points})
-                </h2>
-                <div className="tokens">
-                    {Object.entries(player.tokens).map((pair) => (
-                        <TokenComponent key={pair[0]} token={pair[1]} onPick={onPickToken} />
-                    ))}
-                </div>
-                <div className="cards-owned">
-                    {player.cards.map((card) => (
-                        <div key={card.id} className="owned-card">
-                            <img src={card.imageUrl} alt={card.rewardGemType} />
+            <div className="tokens">
+                {Object.entries(player.tokens).map(([gemType, value]) => {
+                    // 根据 gemType 决定消耗宝石的圆圈颜色
+                    const costColor = gemColors[gemType] ?? '#ccc';
+                    return (
+                        <div
+                            key={gemType}
+                            className="owned-gem"
+                            style={{ backgroundColor: costColor }}
+                        >
+                            {value}
                         </div>
-                    ))}
-                </div>
+                    );
+                })}
+            </div>
+            <div className="cards-owned">
+                {player.cards.map((card) => (
+                    <div key={card.id} className="owned-card">
+                        <img src={card.imageUrl} alt={card.rewardGemType} />
+                    </div>
+                ))}
             </div>
         </div>
     );

@@ -1,5 +1,5 @@
 {
-    "boardLevel1": [{
+    "Level1": [{
             "id": 1,
             "level": 1,
             "cost": {
@@ -115,7 +115,7 @@
             "imageUrl": "/level1/1010.png"
         }
     ],
-    "boardLevel2": [{
+    "Level2": [{
             "id": 1,
             "level": 2,
             "cost": {
@@ -231,7 +231,7 @@
             "imageUrl": "/level2/2010.png"
         }
     ],
-    "boardLevel3": [{
+    "Level3": [{
             "id": 1,
             "level": 3,
             "cost": {
@@ -352,7 +352,7 @@
             "imageUrl": "/level3/3010.png"
         }
     ],
-    "boardLevel9": [{
+    "Level9": [{
             "id": 1,
             "level": 9,
             "cost": {
