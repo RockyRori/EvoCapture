@@ -16,15 +16,17 @@ const gemColors: Record<string, string> = {
 
 interface CardProps {
     card: CardModel;
+    place: string;
 }
 
-const CardComponent: React.FC<CardProps> = ({ card }) => {
+const CardComponent: React.FC<CardProps> = ({ card, place }) => {
     const { state, dispatch } = useGameStore();
+    const currentPlayer = state.players[state.currentPlayerIndex];
 
     // 点击卡牌时执行选择逻辑
     const onSelect = () => {
-        if (state.period === 'capture') { dispatch({ type: 'CAPTURE_CREATURE', payload: card }); }
-        if (state.period === 'reserve') { dispatch({ type: 'RESERVE_CREATURE', payload: card }); }
+        if (state.period === 'capture' && place === 'public' || state.period === 'capture' && place === currentPlayer.name) { dispatch({ type: 'CAPTURE_CREATURE', payload: card, place: place }); }
+        if (state.period === 'reserve' && place === 'public' && currentPlayer.reservedCards.length <= 0) { dispatch({ type: 'RESERVE_CREATURE', payload: card }); }
         dispatch({ type: 'CHECK_GAME_END' });
     };
     // const onCapture = () => {

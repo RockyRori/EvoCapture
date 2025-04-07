@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Player } from '../models/Player';
-import { useGameStore } from '../store/GameStore';
+import CardComponent from './Card';
 import './PlayerBoard.css';
 
 // 定义宝石类型到颜色的映射表
@@ -18,14 +18,13 @@ interface PlayerBoardProps {
 }
 
 const PlayerBoard: React.FC<PlayerBoardProps> = ({ player }) => {
-    // @ts-ignore TS6133
-    const { state, dispatch } = useGameStore();
-    // @ts-ignore TS6133
-    const onPickToken = (tokenType: string) => {
-        dispatch({ type: 'PICK_TOKENS', payload: tokenType });
-    };
     return (
         <div className="player-board">
+            <div className="cards-reserved">
+                {player.reservedCards.map((card) => (
+                    <CardComponent key={card.id} card={card} place={player.name} />
+                ))}
+            </div>
             <div className="player-header">
                 <div className="player-name">{player.name}: {player.points}<img src={player.avatar} alt="player-avatar" className="player-image" /></div>
             </div>

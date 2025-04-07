@@ -24,23 +24,23 @@ const Board: React.FC = () => {
         <div className="board">
             <div className="card-row board-level9">
                 {state.boardLevel9.map((card) => (
-                    <CardComponent key={card.id} card={card} />
+                    <CardComponent key={card.id} card={card} place='public' />
                 ))}
             </div>
 
             <div className="card-row">
                 {state.boardLevel3.map((card) => (
-                    <CardComponent key={card.id} card={card} />
+                    <CardComponent key={card.id} card={card} place='public' />
                 ))}
             </div>
             <div className="card-row">
                 {state.boardLevel2.map((card) => (
-                    <CardComponent key={card.id} card={card} />
+                    <CardComponent key={card.id} card={card} place='public' />
                 ))}
             </div>
             <div className="card-row">
                 {state.boardLevel1.map((card) => (
-                    <CardComponent key={card.id} card={card} />
+                    <CardComponent key={card.id} card={card} place='public' />
                 ))}
             </div>
 
