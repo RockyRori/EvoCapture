@@ -252,6 +252,7 @@ function gameReducer(state: GameState, action: Action): GameState {
     }
     case 'PICK_TOKENS': {
       // payload: array of token types选取
+      // @ts-ignore TS6133
       const currentPlayer = state.players[state.currentPlayerIndex];
       const newTokensPool = state.tokensPool.map((token) => {
         if (action.payload.includes(token.type) && token.count > 0) {
@@ -352,6 +353,7 @@ function gameReducer(state: GameState, action: Action): GameState {
     }
     case 'RESERVE_CARD': {
       // payload: 要预留的卡牌，移除该卡牌从桌面，并加入当前玩家的 reservedCards
+      // @ts-ignore TS6133
       let updatedBoard: Card[] = [];
       if (action.payload.level === 1) {
         updatedBoard = state.boardLevel1.filter((c) => c.id !== action.payload.id);

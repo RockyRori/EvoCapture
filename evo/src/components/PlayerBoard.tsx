@@ -18,7 +18,9 @@ interface PlayerBoardProps {
 }
 
 const PlayerBoard: React.FC<PlayerBoardProps> = ({ player }) => {
+    // @ts-ignore TS6133
     const { state, dispatch } = useGameStore();
+    // @ts-ignore TS6133
     const onPickToken = (tokenType: string) => {
         dispatch({ type: 'PICK_TOKENS', payload: [tokenType] });
     };

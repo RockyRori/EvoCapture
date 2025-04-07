@@ -1,5 +1,4 @@
 // src/views/GameView.tsx
-import React, { useEffect } from 'react';
 import Board from '../components/Board';
 import PlayerBoard from '../components/PlayerBoard';
 import PlayerController from '../components/PlayerController.tsx';
