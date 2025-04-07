@@ -1,0 +1,17 @@
+.board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-row {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.tokens-pool {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}

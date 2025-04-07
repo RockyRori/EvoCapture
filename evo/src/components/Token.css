@@ -1,0 +1,29 @@
+.token {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.token:hover {
+    transform: scale(1.1);
+}
+
+.token.red {
+    background-color: #ff7f7f;
+}
+
+.token.blue {
+    background-color: #7f7fff;
+}
+
+.token.green {
+    background-color: #7fff7f;
+}
+
+/* 其他宝石颜色可以按需添加 */
