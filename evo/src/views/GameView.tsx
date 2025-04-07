@@ -1,4 +1,5 @@
-import React from 'react';
+// src/views/GameView.tsx
+import React, { useEffect } from 'react';
 import Board from '../components/Board';
 import PlayerBoard from '../components/PlayerBoard';
 import { useGameStore } from '../store/GameStore';
@@ -7,23 +8,26 @@ import './GameView.css';
 const GameView: React.FC = () => {
     const { state, dispatch } = useGameStore();
 
+    // 页面加载时自动初始化游戏
+    useEffect(() => {
+        dispatch({ type: 'INIT_GAME' });
+    }, [dispatch]);
+
     const restartGame = () => {
         dispatch({ type: 'INIT_GAME' });
     };
 
     return (
         <div className="game-view">
-            <h1>卡牌进化之地</h1>
-
             <div className="board-container">
                 <Board />
             </div>
-
-            <div className="players-container">
-                {state.players.map((player) => (
-                    <PlayerBoard key={player.id} player={player} />
-                ))}
-            </div>
+            <div className="action-container">
+                <div className="players-container">
+                    {state.players.map((player) => (
+                        <PlayerBoard key={player.id} player={player} />
+                    ))}
+                </div></div>
 
             {state.isGameOver && (
                 <div className="game-over">

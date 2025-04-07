@@ -17,7 +17,7 @@ const TokenComponent: React.FC<TokenProps> = ({ token, onPick }) => {
     return (
         <div className={`token ${token.type}`} onClick={pickToken}>
             <p>
-                {token.type} ({token.count})
+                {token.count}
             </p>
         </div>
     );

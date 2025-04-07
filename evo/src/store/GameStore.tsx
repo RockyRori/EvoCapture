@@ -4,99 +4,156 @@ import type { Card } from '../models/Card';
 import type { Player } from '../models/Player';
 import type { Token } from '../models/Token';
 
-/** 示例数据 */
+// 从外部 JSON 文件中引入所有卡牌数据
+import boardLevelsData from '../data/cards.json';
 
-// 示例卡牌数据
-const sampleBoardLevel1: Card[] = [
-  {
-    id: 1,
-    level: 1,
-    cost: { red: 1, blue: 1 },
-    rewardGemType: 'red',
-    points: 1,
-    imageUrl: '/level1/1001.png',
-  },
-  {
-    id: 2,
-    level: 1,
-    cost: { red: 2 },
-    rewardGemType: 'blue',
-    points: 0,
-    imageUrl: 'OTHER',
-  },
-];
-
-const sampleBoardLevel2: Card[] = [
-  {
-    id: 3,
-    level: 2,
-    cost: { blue: 2, green: 1 },
-    rewardGemType: 'green',
-    points: 2,
-    imageUrl: '/level2/2001.png',
-  },
-];
-
-const sampleBoardLevel3: Card[] = [
-  {
-    id: 4,
-    level: 3,
-    cost: { red: 3, green: 2 },
-    rewardGemType: 'blue',
-    points: 3,
-    imageUrl: '/level3/3001.png',
-  },
-];
-
-// 示例宝石代币数据
+// 示例宝石代币数据：6种宝石
 const sampleTokensPool: Token[] = [
-  { type: 'red', count: 5 },
-  { type: 'blue', count: 5 },
-  { type: 'green', count: 5 },
-  { type: 'yellow', count: 5 },
-  { type: 'black', count: 5 },
+  { type: 'metal', count: 5 },
+  { type: 'wood', count: 5 },
+  { type: 'water', count: 5 },
+  { type: 'fire', count: 5 },
+  { type: 'earth', count: 5 },
+  { type: 'special', count: 5 },
 ];
 
 // 示例玩家数据
 const samplePlayers: Player[] = [
   {
     id: 1,
-    name: 'Alice',
-    tokens: { red: 1, blue: 0, green: 0, yellow: 0, black: 0 },
+    name: 'John',
+    avatar: '/avatar/John.png',
+    tokens: [
+      { type: 'metal', count: 0 },
+      { type: 'wood', count: 0 },
+      { type: 'water', count: 0 },
+      { type: 'fire', count: 0 },
+      { type: 'earth', count: 0 },
+      { type: 'special', count: 0 },
+    ],
     cards: [],
     reservedCards: [],
     points: 0,
   },
   {
     id: 2,
-    name: 'Bob',
-    tokens: { red: 0, blue: 1, green: 0, yellow: 0, black: 0 },
+    name: 'Emma',
+    avatar: '/avatar/Emma.png',
+    tokens: [
+      { type: 'metal', count: 0 },
+      { type: 'wood', count: 0 },
+      { type: 'water', count: 0 },
+      { type: 'fire', count: 0 },
+      { type: 'earth', count: 0 },
+      { type: 'special', count: 0 },
+    ],
     cards: [],
     reservedCards: [],
     points: 0,
-  },
+  },{
+    id: 3,
+    name: 'Mike',
+    avatar: '/avatar/Mike.png',
+    tokens: [
+      { type: 'metal', count: 0 },
+      { type: 'wood', count: 0 },
+      { type: 'water', count: 0 },
+      { type: 'fire', count: 0 },
+      { type: 'earth', count: 0 },
+      { type: 'special', count: 0 },
+    ],
+    cards: [],
+    reservedCards: [],
+    points: 0,
+  },{
+    id: 4,
+    name: 'Lucy',
+    avatar: '/avatar/Lucy.png',
+    tokens: [
+      { type: 'metal', count: 0 },
+      { type: 'wood', count: 0 },
+      { type: 'water', count: 0 },
+      { type: 'fire', count: 0 },
+      { type: 'earth', count: 0 },
+      { type: 'special', count: 0 },
+    ],
+    cards: [],
+    reservedCards: [],
+    points: 0,
+  },{
+    id: 5,
+    name: 'David',
+    avatar: '/avatar/David.png',
+    tokens: [
+      { type: 'metal', count: 0 },
+      { type: 'wood', count: 0 },
+      { type: 'water', count: 0 },
+      { type: 'fire', count: 0 },
+      { type: 'earth', count: 0 },
+      { type: 'special', count: 0 },
+    ],
+    cards: [],
+    reservedCards: [],
+    points: 0,
+  },{
+    id: 6,
+    name: 'Anna',
+    avatar: '/avatar/Anna.png',
+    tokens: [
+      { type: 'metal', count: 0 },
+      { type: 'wood', count: 0 },
+      { type: 'water', count: 0 },
+      { type: 'fire', count: 0 },
+      { type: 'earth', count: 0 },
+      { type: 'special', count: 0 },
+    ],
+    cards: [],
+    reservedCards: [],
+    points: 0,
+  }
 ];
 
+// 如果需要洗牌，可在此定义一个 shuffle 函数
+function shuffle<T>(array: T[]): T[] {
+  const newArr = [...array];
+  for (let i = newArr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+  }
+  return newArr;
+}
+
 export interface GameState {
+  // 牌库：存放所有卡牌
   deckLevel1: Card[];
   deckLevel2: Card[];
   deckLevel3: Card[];
+  deckLevel9: Card[];
+
+  // 桌面：实际展示的卡牌
   boardLevel1: Card[];
   boardLevel2: Card[];
   boardLevel3: Card[];
+  boardLevel9: Card[];
+
   tokensPool: Token[];
   players: Player[];
   currentPlayerIndex: number;
   isGameOver: boolean;
 }
 
+// 初始状态：先把所有卡牌放到 deck 里，board 为空
 const initialState: GameState = {
-  deckLevel1: [],
-  deckLevel2: [],
-  deckLevel3: [],
-  boardLevel1: sampleBoardLevel1,
-  boardLevel2: sampleBoardLevel2,
-  boardLevel3: sampleBoardLevel3,
+  deckLevel1: boardLevelsData.boardLevel1,
+  deckLevel2: boardLevelsData.boardLevel2,
+  deckLevel3: boardLevelsData.boardLevel3,
+  deckLevel9: boardLevelsData.boardLevel9,
+
+  boardLevel1: [],
+  boardLevel2: [],
+  boardLevel3: [],
+  boardLevel9: [],
+
   tokensPool: sampleTokensPool,
   players: samplePlayers,
   currentPlayerIndex: 0,
@@ -113,25 +170,54 @@ type Action =
 
 function gameReducer(state: GameState, action: Action): GameState {
   switch (action.type) {
-    case 'INIT_GAME':
-      // 重置游戏状态为初始数据
-      return { ...initialState };
+    case 'INIT_GAME': {
+      // 复制初始状态，避免直接修改 initialState
+      const newDeck1 = [...initialState.deckLevel1];
+      const newDeck2 = [...initialState.deckLevel2];
+      const newDeck3 = [...initialState.deckLevel3];
+      const newDeck9 = [...initialState.deckLevel9];
+
+      // 如果需要洗牌，可以在此处对每个数组 shuffle
+      // const newDeck1 = shuffle([...initialState.deckLevel1]);
+      // const newDeck2 = shuffle([...initialState.deckLevel2]);
+      // const newDeck3 = shuffle([...initialState.deckLevel3]);
+      // const newDeck9 = shuffle([...initialState.deckLevel9]);
+
+      // 从玩家列表长度推断展示卡牌数量
+      const playerCount = initialState.players.length;
+
+      // 抽取对应数量的卡牌到桌面
+      const newBoard1 = newDeck1.splice(0, playerCount + 1);
+      const newBoard2 = newDeck2.splice(0, playerCount + 1);
+      const newBoard3 = newDeck3.splice(0, playerCount + 1);
+      const newBoard9 = newDeck9.splice(0, 2);
+
+      return {
+        ...initialState,
+        // 更新剩余牌库
+        deckLevel1: newDeck1,
+        deckLevel2: newDeck2,
+        deckLevel3: newDeck3,
+        deckLevel9: newDeck9,
+        // 更新桌面展示
+        boardLevel1: newBoard1,
+        boardLevel2: newBoard2,
+        boardLevel3: newBoard3,
+        boardLevel9: newBoard9,
+      };
+    }
     case 'NEXT_TURN':
       return {
         ...state,
         currentPlayerIndex: (state.currentPlayerIndex + 1) % state.players.length,
       };
     case 'PICK_TOKENS':
-      // 根据规则更新 tokensPool 及当前玩家的 tokens，这里暂时不做逻辑处理
       return state;
     case 'BUY_CARD':
-      // 检查宝石是否足够、更新玩家卡牌和分数等，暂时返回当前状态
       return state;
     case 'RESERVE_CARD':
-      // 实现预留卡牌逻辑
       return state;
     case 'CHECK_GAME_END':
-      // 判断游戏结束条件
       return state;
     default:
       return state;

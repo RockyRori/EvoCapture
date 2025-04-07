@@ -1,28 +1,84 @@
+/* src/components/Card.css */
 .card {
     width: 120px;
-    height: 180px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    margin: 0.5rem;
+    height: 150px;
+    border-radius: 16px;
+    position: relative;
     cursor: pointer;
+    color: #ffffff;
+    overflow: hidden;
     transition: transform 0.2s ease;
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
+.card-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+/* 卡牌头部：左右排布 */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+}
+
+/* 左上角点数方块 */
+.card-points {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    background: #d1c2c2;
+}
+
+/* 右上角永久宝石容器 */
+.card-rewards {
+    display: flex;
+    gap: 2px;
+}
+
+/* 单个永久宝石圆球 */
+.card-reward {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+/* 卡牌中间图片 */
 .card-image {
     width: 100%;
-    height: 70%;
+    height: 90px;
     object-fit: cover;
+    display: block;
 }
 
-.card-info {
+/* 购买需求宝石，居中排布 */
+.card-cost {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
     padding: 4px;
-    font-size: 12px;
 }
 
-.cost {
-    margin-top: 4px;
+/* 消耗宝石圆圈 */
+.cost-gem {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #161313;
 }

@@ -1,6 +1,6 @@
 .token {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     border: 2px solid #444;
     display: flex;
@@ -8,22 +8,34 @@
     justify-content: center;
     cursor: pointer;
     transition: transform 0.2s ease;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 .token:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
-.token.red {
-    background-color: #ff7f7f;
+.token.metal {
+    background-color: #C0C0C0;
 }
 
-.token.blue {
-    background-color: #7f7fff;
+.token.wood {
+    background-color: #4CAF50;
 }
 
-.token.green {
-    background-color: #7fff7f;
+.token.water {
+    background-color: #1E90FF;
 }
 
-/* 其他宝石颜色可以按需添加 */
+.token.fire {
+    background-color: #FF7F7F;
+}
+
+.token.earth {
+    background-color: #FFD700;
+}
+
+.token.special {
+    background-color: #7E0478;
+}
