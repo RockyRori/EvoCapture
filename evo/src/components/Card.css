@@ -1,11 +1,11 @@
 /* src/components/Card.css */
 .card {
     width: 120px;
-    height: 160px;
+    height: 180px;
     border-radius: 16px;
     position: relative;
     cursor: pointer;
-    color: #ffffff;
+    color: #000000;
     overflow: hidden;
     transition: transform 0.2s ease;
 }

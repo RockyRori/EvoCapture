@@ -55,7 +55,7 @@ const CardComponent: React.FC<CardProps> = ({ card }) => {
                 </div>
 
                 {/* 卡牌图片 */}
-                <img src={card.imageUrl} alt="card" className="card-image" />
+                <img src={card.imageUrl} alt="Creature" className="card-image" />
 
                 {/* 购买需求宝石 */}
                 <div className="card-cost">

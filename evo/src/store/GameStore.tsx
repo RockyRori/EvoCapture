@@ -22,7 +22,7 @@ const Players: Player[] = [
   {
     id: 1,
     name: 'John',
-    avatar: '/avatar/John.png',
+    avatar: '/EvoCapture/avatar/John.png',
     tokens: {
       "metal": 0,
       "wood": 0,
@@ -38,7 +38,7 @@ const Players: Player[] = [
   {
     id: 2,
     name: 'Emma',
-    avatar: '/avatar/Emma.png',
+    avatar: '/EvoCapture/avatar/Emma.png',
     tokens: {
       "metal": 0,
       "wood": 0,
@@ -53,7 +53,7 @@ const Players: Player[] = [
   }, {
     id: 3,
     name: 'Mike',
-    avatar: '/avatar/Mike.png',
+    avatar: '/EvoCapture/avatar/Mike.png',
     tokens: {
       "metal": 0,
       "wood": 0,
@@ -68,7 +68,7 @@ const Players: Player[] = [
   }, {
     id: 4,
     name: 'Lucy',
-    avatar: '/avatar/Lucy.png',
+    avatar: '/EvoCapture/avatar/Lucy.png',
     tokens: {
       "metal": 0,
       "wood": 0,
@@ -83,7 +83,7 @@ const Players: Player[] = [
   }, {
     id: 5,
     name: 'David',
-    avatar: '/avatar/David.png',
+    avatar: '/EvoCapture/avatar/David.png',
     tokens: {
       "metal": 0,
       "wood": 0,
@@ -98,7 +98,7 @@ const Players: Player[] = [
   }, {
     id: 6,
     name: 'Anna',
-    avatar: '/avatar/Anna.png',
+    avatar: '/EvoCapture/avatar/Anna.png',
     tokens: {
       "metal": 0,
       "wood": 0,
