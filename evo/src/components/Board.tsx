@@ -9,8 +9,16 @@ const Board: React.FC = () => {
     const { state, dispatch } = useGameStore();
 
     const onPickToken = (tokenType: string) => {
-        dispatch({ type: 'PICK_TOKENS', payload: [tokenType] });
+        if (state.period === 'gem') { dispatch({ type: 'PICK_TOKENS', payload: tokenType }); }
     };
+    const onReturnToken = (tokenType: string) => {
+        if (state.period === 'gem') { dispatch({ type: 'RETURN_TOKENS', payload: tokenType }); }
+    };
+    const onConfirmToken = () => {
+        dispatch({ type: 'CONFIRM_TOKENS' });
+        dispatch({ type: 'NEXT_TURN' });
+        dispatch({ type: 'CHECK_GAME_END' });
+    }
 
     return (
         <div className="board">
@@ -38,10 +46,18 @@ const Board: React.FC = () => {
 
             <div className="tokens-pool">
                 {state.tokensPool.map((token) => (
-                    <TokenComponent key={token.type} token={token} onPick={onPickToken} />
+                    <TokenComponent key={token.type} token={token} handlePick={onPickToken} />
                 ))}
             </div>
-        </div>
+            {state.tokensSelected.length > 0 ?
+                <div className="tokens-pool">
+                    {state.tokensSelected.map((token) => (
+                        <TokenComponent key={token.type} token={token} handlePick={onReturnToken} />
+                    ))}
+                    <button onClick={onConfirmToken}>Accept</button>
+                </div>
+                : <div style={{ minHeight: 28 }}></div>}
+        </div >
     );
 };
 

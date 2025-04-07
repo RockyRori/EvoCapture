@@ -4,18 +4,16 @@ import './Token.css';
 
 interface TokenProps {
     token: Token;
-    onPick: (tokenType: string) => void;
+    handlePick: (tokenType: string) => void;
 }
 
-const TokenComponent: React.FC<TokenProps> = ({ token, onPick }) => {
-    const pickToken = () => {
-        if (token.count > 0) {
-            onPick(token.type);
-        }
+const TokenComponent: React.FC<TokenProps> = ({ token, handlePick }) => {
+    const handleToken = () => {
+        handlePick(token.type);
     };
 
     return (
-        <div className={`token ${token.type}`} onClick={pickToken}>
+        <div className={`token ${token.type}`} onClick={handleToken}>
             <p>
                 {token.count}
             </p>

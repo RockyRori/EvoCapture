@@ -17,6 +17,16 @@ const TokensPool: Token[] = [
   { type: 'special', count: 0 },
 ];
 
+const TokensSelected: Token[] = [];
+
+const Period = {
+  ready: 'ready',
+  gem: 'gem',
+  reserve: 'reserve',
+  capture: 'capture',
+  skip: 'skip',
+};
+
 // 示例玩家数据
 const Players: Player[] = [
   {
@@ -137,10 +147,12 @@ export interface GameState {
   boardLevel9: Card[];
 
   tokensPool: Token[];
+  tokensSelected: Token[];
   players: Player[];
   currentPlayerIndex: number;
   isGameOver: boolean;
   hasStarted: boolean;
+  period: string;
 }
 
 // 初始状态：先把所有卡牌放到 deck 里，board 为空
@@ -156,20 +168,25 @@ const initialState: GameState = {
   boardLevel9: [],
 
   tokensPool: TokensPool,
+  tokensSelected: TokensSelected,
   players: Players,
   currentPlayerIndex: 0,
   isGameOver: false,
   hasStarted: false,
+  period: Period.ready,
 };
 
 type Action =
   | { type: 'INIT_GAME' }
+  | { type: 'CHANGE_PERIOD'; payload: string }
+  | { type: 'STASH' }
   | { type: 'NEXT_TURN' }
-  | { type: 'PICK_TOKENS'; payload: string[] }
-  | { type: 'BUY_CARD'; payload: Card }
-  | { type: 'RESERVE_CARD'; payload: Card }
-  | { type: 'CHECK_GAME_END' }
-  | { type: 'CAPTURE_POKEMON' };
+  | { type: 'PICK_TOKENS'; payload: string }
+  | { type: 'RETURN_TOKENS'; payload: string }
+  | { type: 'CONFIRM_TOKENS' }
+  | { type: 'CAPTURE_CREATURE'; payload: Card }
+  | { type: 'RESERVE_CREATURE'; payload: Card }
+  | { type: 'CHECK_GAME_END' };
 
 // 辅助函数：检查当前玩家是否能支付 cost
 function canAfford(tokens: { [gem: string]: number }, cost: { [gem: string]: number }): boolean {
@@ -239,12 +256,38 @@ function gameReducer(state: GameState, action: Action): GameState {
         boardLevel9: newBoard9,
         // 更新代币
         tokensPool: tokensPool,
+        tokensSelected: [],
         // 更新代币
         isGameOver: false,
         hasStarted: true,
+        period: Period.ready,
+      };
+    }
+    case 'CHANGE_PERIOD': {
+      return { ...state, period: action.payload };
+    }
+    case 'STASH': {
+      // 更新 tokensPool，将 tokensSelected 中每种宝石数量加回到总的 tokensPool 中
+      const newTokensPool = state.tokensPool.map(poolToken => {
+        // 在 tokensSelected 中查找相同类型的宝石
+        const selectedToken = state.tokensSelected.find(token => token.type === poolToken.type);
+        if (selectedToken) {
+          return {
+            ...poolToken,
+            count: poolToken.count + selectedToken.count,
+          };
+        }
+        return poolToken;
+      });
+
+      return {
+        ...state,
+        tokensPool: newTokensPool,
+        tokensSelected: [],
       };
     }
     case 'NEXT_TURN': {
+      // 切换到下一位玩家
       return {
         ...state,
         currentPlayerIndex: (state.currentPlayerIndex + 1) % state.players.length,
@@ -252,32 +295,70 @@ function gameReducer(state: GameState, action: Action): GameState {
     }
     case 'PICK_TOKENS': {
       // payload: array of token types选取
-      // @ts-ignore TS6133
-      const currentPlayer = state.players[state.currentPlayerIndex];
+      const newTokensSelected = [...state.tokensSelected];
       const newTokensPool = state.tokensPool.map((token) => {
-        if (action.payload.includes(token.type) && token.count > 0) {
+        const typeCount = newTokensSelected.length;
+        const totalCount = newTokensSelected.reduce((sum, token) => sum + token.count, 0);
+        // 只能选择非紫色的普通五行胶囊不同的3个或者相同的两个
+        if (action.payload === token.type && token.count > 0 && token.type != 'special' && (typeCount == 0 || typeCount == 1 && totalCount == 1 || typeCount == 2 && totalCount == 2 && newTokensSelected.findIndex(t => t.type === token.type) < 0)) {
+          const index = newTokensSelected.findIndex(t => t.type === token.type);
+          if (index >= 0) {
+            // 如果已经存在，则创建新的对象，增加 count
+            newTokensSelected[index] = {
+              ...newTokensSelected[index],
+              count: newTokensSelected[index].count + 1,
+            };
+          } else {
+            // 如果不存在，则添加新的 token，初始 count 为 1
+            newTokensSelected.push({ ...token, count: 1 });
+          }
           return { ...token, count: token.count - 1 };
         }
         return token;
       });
-      // 更新当前玩家 tokens：加1 对于选取的每种宝石
+      return { ...state, tokensPool: newTokensPool, tokensSelected: newTokensSelected };
+    }
+    case 'RETURN_TOKENS': {
+      // 假设 action.payload 是要返回的代币类型（例如 "ruby"）
+      const tokenTypeToReturn = action.payload;
+
+      // 更新 tokensSelected：找到对应的代币，数量减1，若减到0则过滤掉该代币
+      const newTokensSelected = state.tokensSelected
+        .map(token => {
+          if (token.type === tokenTypeToReturn) {
+            return { ...token, count: token.count - 1 };
+          }
+          return token;
+        })
+        .filter(token => token.count > 0);
+
+      // 更新 tokensPool：找到对应的代币，数量加1
+      const newTokensPool = state.tokensPool.map(token => {
+        if (token.type === tokenTypeToReturn) {
+          return { ...token, count: token.count + 1 };
+        }
+        return token;
+      });
+
+      return { ...state, tokensPool: newTokensPool, tokensSelected: newTokensSelected };
+    }
+    case 'CONFIRM_TOKENS': {
       const newPlayers = state.players.map((player, idx) => {
         if (idx === state.currentPlayerIndex) {
+          // 复制当前玩家的 tokens 对象，避免直接修改 state
           const newPlayerTokens = { ...player.tokens };
-          action.payload.forEach((gem) => {
-            newPlayerTokens[gem] = (newPlayerTokens[gem] || 0) + 1;
+          // 遍历 tokensSelected 数组，累加 token 数量
+          state.tokensSelected.forEach(token => {
+            newPlayerTokens[token.type] = (newPlayerTokens[token.type] || 0) + token.count;
           });
           return { ...player, tokens: newPlayerTokens };
         }
         return player;
       });
-      return { ...state, tokensPool: newTokensPool, players: newPlayers };
+      // 清空 tokensSelected 数组
+      return { ...state, tokensSelected: [], players: newPlayers, period: Period.ready };
     }
-    case 'CAPTURE_POKEMON': {
-      // 示例：捕捉精灵阶段的逻辑，此处仅作为演示直接返回状态
-      return state;
-    }
-    case 'BUY_CARD': {
+    case 'CAPTURE_CREATURE': {
       // payload: 卡牌对象，假设该卡牌在当前桌面中存在（不考虑预留情况）
       const currentPlayer = state.players[state.currentPlayerIndex];
       // 判断是否有足够代币支付
@@ -349,49 +430,98 @@ function gameReducer(state: GameState, action: Action): GameState {
       } else if (action.payload.level === 9) {
         newState = { ...newState, deckLevel9: newDeck, boardLevel9: updatedBoard };
       }
-      return newState;
+      return { ...newState, period: Period.ready, currentPlayerIndex: (state.currentPlayerIndex + 1) % state.players.length };
     }
-    case 'RESERVE_CARD': {
+
+    case 'RESERVE_CREATURE': {
       // payload: 要预留的卡牌，移除该卡牌从桌面，并加入当前玩家的 reservedCards
-      // @ts-ignore TS6133
-      let updatedBoard: Card[] = [];
-      if (action.payload.level === 1) {
-        updatedBoard = state.boardLevel1.filter((c) => c.id !== action.payload.id);
-      } else if (action.payload.level === 2) {
-        updatedBoard = state.boardLevel2.filter((c) => c.id !== action.payload.id);
-      } else if (action.payload.level === 3) {
-        updatedBoard = state.boardLevel3.filter((c) => c.id !== action.payload.id);
-      } else if (action.payload.level === 9) {
-        updatedBoard = state.boardLevel9.filter((c) => c.id !== action.payload.id);
-      }
+      // 从对应等级的桌面中移除卡牌，并尝试补充（这里简单地 filter 移除，补充逻辑可根据需求扩展）
+      const newUserTokens = { ...state.players[state.currentPlayerIndex].tokens };
       // 给当前玩家增加这张卡到 reservedCards，并尝试给予1个 special 代币（如果代币池有剩余）
       let newTokensPool = state.tokensPool.map((token) => {
         if (token.type === 'special' && token.count > 0) {
+          newUserTokens['special'] = newUserTokens['special'] + 1;
           return { ...token, count: token.count - 1 };
         }
         return token;
       });
+
       const newPlayers = state.players.map((player, idx) => {
         if (idx === state.currentPlayerIndex) {
           return {
             ...player,
             reservedCards: [...player.reservedCards, action.payload],
+            tokens: newUserTokens,
           };
         }
         return player;
       });
-      return { ...state, tokensPool: newTokensPool, players: newPlayers };
+
+      let newBoard: Card[] = [];
+      if (action.payload.level === 1) {
+        newBoard = state.boardLevel1.filter((c) => c.id !== action.payload.id);
+      } else if (action.payload.level === 2) {
+        newBoard = state.boardLevel2.filter((c) => c.id !== action.payload.id);
+      } else if (action.payload.level === 3) {
+        newBoard = state.boardLevel3.filter((c) => c.id !== action.payload.id);
+      } else if (action.payload.level === 9) {
+        newBoard = state.boardLevel9.filter((c) => c.id !== action.payload.id);
+      }
+      // 补充逻辑：从牌库抽一张卡补到桌面（若有剩余）
+      let newDeck: Card[] = [];
+      let updatedBoard: Card[] = newBoard;
+      if (action.payload.level === 1) {
+        newDeck = state.deckLevel1;
+        if (newDeck.length > 0) {
+          const drawn = newDeck.splice(0, 1);
+          updatedBoard = [...newBoard, ...drawn];
+        }
+      } else if (action.payload.level === 2) {
+        newDeck = state.deckLevel2;
+        if (newDeck.length > 0) {
+          const drawn = newDeck.splice(0, 1);
+          updatedBoard = [...newBoard, ...drawn];
+        }
+      } else if (action.payload.level === 3) {
+        newDeck = state.deckLevel3;
+        if (newDeck.length > 0) {
+          const drawn = newDeck.splice(0, 1);
+          updatedBoard = [...newBoard, ...drawn];
+        }
+      } else if (action.payload.level === 9) {
+        newDeck = state.deckLevel9;
+        if (newDeck.length > 0) {
+          const drawn = newDeck.splice(0, 1);
+          updatedBoard = [...newBoard, ...drawn];
+        }
+      }
+      // 更新对应等级的 deck 与 board
+      let newState = { ...state, tokensPool: newTokensPool, players: newPlayers };
+      if (action.payload.level === 1) {
+        newState = { ...newState, deckLevel1: newDeck, boardLevel1: updatedBoard };
+      } else if (action.payload.level === 2) {
+        newState = { ...newState, deckLevel2: newDeck, boardLevel2: updatedBoard };
+      } else if (action.payload.level === 3) {
+        newState = { ...newState, deckLevel3: newDeck, boardLevel3: updatedBoard };
+      } else if (action.payload.level === 9) {
+        newState = { ...newState, deckLevel9: newDeck, boardLevel9: updatedBoard };
+      }
+      return { ...newState, period: Period.ready, currentPlayerIndex: (state.currentPlayerIndex + 1) % state.players.length };
     }
     case 'CHECK_GAME_END': {
-      // 简单逻辑：当有玩家分数达到或超过15时结束游戏
-      const gameOver = state.players.some((player) => player.points >= 2);
-      return { ...state, isGameOver: gameOver };
+      // 简单逻辑：当有玩家分数达到或超过16时结束游戏
+      const gameOver = state.players.some((player) => player.points >= 16);
+      if (gameOver) {
+        return { ...state, currentPlayerIndex: (state.currentPlayerIndex - 1) % state.players.length, isGameOver: gameOver };
+      }
+      return { ...state };
     }
     default:
       return state;
   }
 }
 
+// 创建全局游戏状态管理上下文
 interface GameContextProps {
   state: GameState;
   dispatch: React.Dispatch<Action>;

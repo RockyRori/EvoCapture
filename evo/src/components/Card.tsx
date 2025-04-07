@@ -19,12 +19,22 @@ interface CardProps {
 }
 
 const CardComponent: React.FC<CardProps> = ({ card }) => {
-    const { dispatch } = useGameStore();
+    const { state, dispatch } = useGameStore();
 
-    // 点击卡牌时执行购买逻辑
-    const onBuyCard = () => {
-        dispatch({ type: 'BUY_CARD', payload: card });
+    // 点击卡牌时执行选择逻辑
+    const onSelect = () => {
+        if (state.period === 'capture') { dispatch({ type: 'CAPTURE_CREATURE', payload: card }); }
+        if (state.period === 'reserve') { dispatch({ type: 'RESERVE_CREATURE', payload: card }); }
+        dispatch({ type: 'CHECK_GAME_END' });
     };
+    // const onCapture = () => {
+    //     if (state.period === 'capture') { dispatch({ type: 'CAPTURE_CREATURE', payload: card }); }
+    //     dispatch({ type: 'CHECK_GAME_END' });
+    // };
+    // const onReserve = () => {
+    //     if (state.period === 'reserve') { dispatch({ type: 'RESERVE_CREATURE', payload: card }); }
+    //     dispatch({ type: 'CHECK_GAME_END' });
+    // };
 
     // 2. 根据 rewardGemType 决定卡牌背景和左上角点数圆圈颜色
     const rewardColor = gemColors[card.rewardGemType] ?? '#000000';
@@ -32,7 +42,7 @@ const CardComponent: React.FC<CardProps> = ({ card }) => {
     return (
         <div
             className="card"
-            onClick={onBuyCard}
+            onClick={onSelect}
             style={{ backgroundColor: rewardColor }}
         >   <div className="card-content">
                 {/* 卡牌头部：左上角点数 & 右上角永久宝石 */}

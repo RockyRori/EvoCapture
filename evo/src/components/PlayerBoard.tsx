@@ -22,7 +22,7 @@ const PlayerBoard: React.FC<PlayerBoardProps> = ({ player }) => {
     const { state, dispatch } = useGameStore();
     // @ts-ignore TS6133
     const onPickToken = (tokenType: string) => {
-        dispatch({ type: 'PICK_TOKENS', payload: [tokenType] });
+        dispatch({ type: 'PICK_TOKENS', payload: tokenType });
     };
     return (
         <div className="player-board">
