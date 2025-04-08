@@ -49,7 +49,7 @@ const Board: React.FC = () => {
             <div className='reserved-cards'>
                 {/* 使用 map 遍历 players 数组，渲染每位玩家的 reservedCards */}
                 {state.players.map((player, index) => (
-                    <CardRow className="reserved-card" key={index} cards={player.reservedCards} />
+                    <CardRow className="reserved-card" key={index} cards={player.reservedCards} place={player.name} />
                 ))}
             </div>
         </div>

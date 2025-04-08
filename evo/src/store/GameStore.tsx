@@ -235,7 +235,6 @@ type Action =
   | { type: 'CAPTURE_CREATURE'; payload: Card, place: string }
   | { type: 'RESERVE_CREATURE'; payload: Card }
   | { type: 'CHECK_GAME_END' }
-  | { type: 'NONE' }
   ;
 
 
@@ -410,7 +409,7 @@ function gameReducer(state: GameState, action: Action): GameState {
       return { ...state, tokensSelected: [], players: newPlayers, period: Period.ready };
     }
     case 'CAPTURE_CREATURE': {
-      // TODO: 保留卡牌购买后消失，永久点数和临时点数计算，提取函数公共部分，太杂乱。
+      // TODO: 保留卡牌购买后消失
       // payload: 卡牌对象，包含 cost、points、level、id、place（"public" 或玩家名字）
       const currentPlayer = state.players[state.currentPlayerIndex];
 
@@ -456,6 +455,7 @@ function gameReducer(state: GameState, action: Action): GameState {
 
       // 5-8：根据卡牌归属分别处理
       if (action.place === 'public') {
+        console.log('public');
         // 从对应等级的桌面中移除该卡牌
         let newBoard: Card[] = [];
         if (action.payload.level === 1) {
@@ -508,14 +508,14 @@ function gameReducer(state: GameState, action: Action): GameState {
         } else if (action.payload.level === 9) {
           newState = { ...newState, deckLevel9: newDeck, boardLevel9: updatedBoard };
         }
-      } else if (action.place === currentPlayer.name) {
+      } else if (action.place === newPlayers[state.currentPlayerIndex].name) {
         // 如果卡牌归属于当前玩家，说明该卡牌在预留区中，
         // 则将该卡牌从 reservedCards 中移除
-        const newReservedCards = currentPlayer.reservedCards.filter(
+        const newReservedCards = newPlayers[state.currentPlayerIndex].reservedCards.filter(
           (card) => card.id !== action.payload.id
         );
         newPlayers[state.currentPlayerIndex] = {
-          ...currentPlayer,
+          ...newPlayers[state.currentPlayerIndex],
           reservedCards: newReservedCards,
         }
         newState = { ...newState, players: newPlayers };
