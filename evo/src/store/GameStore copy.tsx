@@ -35,7 +35,7 @@ type Action =
   | { type: 'PICK_TOKENS'; payload: string[] }
   | { type: 'BUY_CARD'; payload: Card }
   | { type: 'RESERVE_CARD'; payload: Card }
-  | { type: 'CHECK_GAME_END' };
+  | { type: 'CHECK_GAME_END_WITH_NEXT_TURN' };
 
 function gameReducer(state: GameState, action: Action): GameState {
   switch (action.type) {
@@ -53,7 +53,7 @@ function gameReducer(state: GameState, action: Action): GameState {
     case 'RESERVE_CARD':
       // 实现预留卡牌逻辑
       return state;
-    case 'CHECK_GAME_END':
+    case 'CHECK_GAME_END_WITH_NEXT_TURN':
       // 判断游戏结束条件
       return state;
     default:

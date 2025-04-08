@@ -28,17 +28,23 @@ const PlayerController: React.FC = () => {
     changePeriod('capture');
   }, [changePeriod]);
 
+  const periodCaptureEvolve = useCallback(() => {
+    changePeriod('evolve', () => {
+      dispatch({ type: 'EVOLVE' });
+      dispatch({ type: 'CHECK_GAME_END_ONLY' });
+    });
+  }, [changePeriod, dispatch]);
+
   const periodSkip = useCallback(() => {
     changePeriod('ready', () => {
-      dispatch({ type: 'NEXT_TURN' });
-      dispatch({ type: 'CHECK_GAME_END' });
+      dispatch({ type: 'CHECK_GAME_END_WITH_NEXT_TURN' });
     });
   }, [changePeriod, dispatch]);
 
   return (
     <div className="player-controller">
       <h2>
-        Player {currentPlayer.name} is manipulating {state.period}
+        Player {currentPlayer.name} now {state.period}
       </h2>
       <div className="controller-buttons">
         <button className="btn btn-gem" onClick={periodPickTokens}>
@@ -49,6 +55,9 @@ const PlayerController: React.FC = () => {
         </button>
         <button className="btn btn-capture" onClick={periodCaptureCreature}>
           Capture
+        </button>
+        <button className="btn btn-evolve" onClick={periodCaptureEvolve}>
+          Evolve
         </button>
         <button className="btn btn-skip" onClick={periodSkip}>
           Skip

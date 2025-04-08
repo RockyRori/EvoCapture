@@ -16,8 +16,7 @@ const Board: React.FC = () => {
     };
     const onConfirmToken = useCallback(() => {
         dispatch({ type: 'CONFIRM_TOKENS' });
-        dispatch({ type: 'NEXT_TURN' });
-        dispatch({ type: 'CHECK_GAME_END' });
+        dispatch({ type: 'CHECK_GAME_END_WITH_NEXT_TURN' });
     }, [dispatch]);
 
     return (

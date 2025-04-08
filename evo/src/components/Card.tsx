@@ -1,5 +1,5 @@
 // src/components/Card.tsx
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef, useEffect } from 'react';
 import { useGameStore } from '../store/GameStore';
 import type { Card as CardModel } from '../models/Card';
 import './Card.css';
@@ -44,7 +44,12 @@ const CardComponent: React.FC<CardProps> = ({ card, place }) => {
     const { state, dispatch } = useGameStore();
     const currentPlayer = state.players[state.currentPlayerIndex];
 
-    // 使用 useCallback 优化 onSelect 函数，梳理条件逻辑
+    // 使用 ref 存储最新 capturedcards（或 captured，依据你实际的字段名称）
+    const capturedRef = useRef(state.captured);
+    useEffect(() => {
+        capturedRef.current = state.captured;
+    }, [state.captured]);
+
     const onSelect = useCallback(() => {
         if (state.period === 'capture') {
             if (place === 'public' || place === currentPlayer.name) {
@@ -55,8 +60,17 @@ const CardComponent: React.FC<CardProps> = ({ card, place }) => {
                 dispatch({ type: 'RESERVE_CREATURE', payload: card });
             }
         }
-        dispatch({ type: 'CHECK_GAME_END' });
     }, [state.period, place, currentPlayer, card, dispatch]);
+
+    // useEffect 监听变化
+    useEffect(() => {
+        // 这里假设 capturedcards 是存放在 currentPlayer 里的字段
+        if (state.captured) {
+            state.captured = false;
+            dispatch({ type: 'CHECK_GAME_END_WITH_NEXT_TURN' });
+        }
+        // 注意这里的依赖以确保 useEffect 在 capturedcards 改变时触发
+    }, [currentPlayer.capturedcards, dispatch]);
 
     // 辅助函数渲染卡牌成本
     const renderCost = () => (

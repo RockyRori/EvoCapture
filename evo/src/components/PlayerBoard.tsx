@@ -69,7 +69,7 @@ const PlayerBoard: React.FC<PlayerBoardProps> = ({ player }) => {
 
             {/* 玩家拥有的卡牌展示 */}
             <div className="cards-owned">
-                {player.cards.map((card) => (
+                {player.capturedcards.map((card) => (
                     <div key={card.id} className="owned-card">
                         <img src={card.imageUrl} alt={card.rewardGemType} />
                     </div>

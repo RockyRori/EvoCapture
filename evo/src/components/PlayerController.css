@@ -28,29 +28,29 @@
 /* 各个按钮的个性化样式 */
 .btn-gem {
     background-color: #4997e6;
-    /* 蓝色 */
     color: #fff;
 }
 
 .btn-reserve {
     background-color: #a600cf;
-    /* 绿色 */
     color: #fff;
 }
 
 .btn-capture {
     background-color: #fac1c1;
-    /* 红色 */
+    color: #ffffff;
+}
+
+.btn-evolve {
+    background-color: #69ec5d;
     color: #ffffff;
 }
 
 .btn-skip {
     background-color: #ccc;
-    /* 灰色 */
     color: #333;
 }
 
-/* 鼠标悬停时的样式 */
 .btn:hover {
     opacity: 0.8;
 }
