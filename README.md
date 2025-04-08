@@ -4,7 +4,7 @@
 ![EvoCapture 游戏封面](/evo/public/cover.png)
 
 ## ​**​🎮 游戏下载​**​  
-[无需下载点击即玩]([game.hullqin.cn/ccbs](https://rockyrori.github.io/EvoCapture/))  
+[无需下载点击即玩](https://rockyrori.github.io/EvoCapture/)
 
 ---
 
@@ -61,7 +61,7 @@
 ---
 
 ## ​**​🚀 开始游戏​**​  
-[无需下载点击即玩]([game.hullqin.cn/ccbs](https://rockyrori.github.io/EvoCapture/))  
+[无需下载点击即玩](https://rockyrori.github.io/EvoCapture/)
 创建房间并邀请好友（支持 1-6 人同屏/分屏游玩）  
 
 ​**​✨ 小提示​**​：长按宝可梦卡可查看进化树和传说触发条件！  
