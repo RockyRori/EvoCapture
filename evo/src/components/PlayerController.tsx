@@ -48,19 +48,19 @@ const PlayerController: React.FC = () => {
       </h2>
       <div className="controller-buttons">
         <button className="btn btn-gem" onClick={periodPickTokens}>
-          Gem
+          拿精灵球
         </button>
         <button className="btn btn-reserve" onClick={periodReserveCreature}>
-          Reserve
+          大师球捉
         </button>
         <button className="btn btn-capture" onClick={periodCaptureCreature}>
-          Capture
+          捕获精灵
         </button>
         <button className="btn btn-evolve" onClick={periodCaptureEvolve}>
-          Evolve
+          进化阶段
         </button>
         <button className="btn btn-skip" onClick={periodSkip}>
-          Skip
+          跳过回合
         </button>
       </div>
     </div>

@@ -405,7 +405,7 @@ function gameReducer(state: GameState, action: Action): GameState {
           if (!boardArrayName || !deckName) continue; // 无法进化
           const boardArray = newState[boardArrayName] as Card[];
           // 查找公共区中是否存在与 captured 卡牌相同 id 的卡牌（代表进化版）
-          const cardIndex = boardArray.findIndex(card => card.id === captured.id);
+          const cardIndex = boardArray.findIndex(card => card.id % 100 === captured.id % 100);
           if (cardIndex !== -1) {
             evolved = true;
             // 找到进化卡牌，从公共区中移除该卡牌

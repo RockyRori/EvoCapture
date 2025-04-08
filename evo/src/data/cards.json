@@ -1,133 +1,133 @@
 {
     "Level1": [{
-            "id": 1,
-            "name": "水火鼠",
+            "id": 1001,
+            "name": "小鱼儿",
             "level": 1,
             "cost": {
                 "metal": 0,
                 "wood": 0,
-                "water": 0,
-                "fire": 2,
+                "water": 1,
+                "fire": 1,
                 "earth": 0,
                 "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 0,
-            "points": 1,
+            "points": 0,
             "imageUrl": "/EvoCapture/level1/1001.webp"
         },
         {
-            "id": 2,
-            "name": "炎水苗",
-            "level": 1,
-            "cost": {
-                "metal": 0,
-                "wood": 0,
-                "water": 1,
-                "fire": 1,
-                "earth": 0,
-                "special": 0
-            },
-            "rewardGemType": "fire",
-            "rewardGemCount": 1,
-            "points": 2,
-            "imageUrl": "/EvoCapture/level1/1002.webp"
-        },
-        {
-            "id": 3,
-            "name": "炽焰球",
+            "id": 1002,
+            "name": "炎猴仔",
             "level": 1,
             "cost": {
                 "metal": 0,
                 "wood": 0,
                 "water": 0,
-                "fire": 2,
+                "fire": 3,
                 "earth": 0,
                 "special": 0
             },
-            "rewardGemType": "water",
-            "rewardGemCount": 2,
+            "rewardGemType": "fire",
+            "rewardGemCount": 1,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level1/1002.webp"
+        },
+        {
+            "id": 1003,
+            "name": "豆芽芽",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 2,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "wood",
+            "rewardGemCount": 0,
             "points": 0,
             "imageUrl": "/EvoCapture/level1/1003.webp"
         },
         {
-            "id": 4,
-            "name": "热泉鱼",
+            "id": 1004,
+            "name": "嘟嘟石",
             "level": 1,
             "cost": {
-                "metal": 0,
+                "metal": 1,
                 "wood": 0,
-                "water": 1,
-                "fire": 1,
-                "earth": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 1,
                 "special": 0
             },
-            "rewardGemType": "fire",
-            "rewardGemCount": 3,
-            "points": 1,
+            "rewardGemType": "earth",
+            "rewardGemCount": 0,
+            "points": 0,
             "imageUrl": "/EvoCapture/level1/1004.webp"
         },
         {
-            "id": 5,
-            "name": "火苗狐",
+            "id": 1005,
+            "name": "金属球",
             "level": 1,
             "cost": {
-                "metal": 0,
+                "metal": 1,
                 "wood": 0,
                 "water": 0,
                 "fire": 2,
-                "earth": 0,
+                "earth": 1,
                 "special": 0
             },
-            "rewardGemType": "water",
+            "rewardGemType": "metal",
             "rewardGemCount": 1,
-            "points": 2,
+            "points": 1,
             "imageUrl": "/EvoCapture/level1/1005.webp"
         },
         {
-            "id": 6,
-            "name": "炽灵花",
+            "id": 1006,
+            "name": "懒洋洋",
             "level": 1,
             "cost": {
                 "metal": 0,
                 "wood": 0,
                 "water": 1,
-                "fire": 1,
-                "earth": 0,
+                "fire": 0,
+                "earth": 1,
                 "special": 0
             },
-            "rewardGemType": "fire",
-            "rewardGemCount": 1,
+            "rewardGemType": "earth",
+            "rewardGemCount": 0,
             "points": 0,
             "imageUrl": "/EvoCapture/level1/1006.webp"
         },
         {
-            "id": 7,
-            "name": "火焰虫",
+            "id": 1007,
+            "name": "绿叶童",
             "level": 1,
             "cost": {
                 "metal": 0,
-                "wood": 0,
-                "water": 0,
-                "fire": 2,
+                "wood": 1,
+                "water": 1,
+                "fire": 0,
                 "earth": 0,
                 "special": 0
             },
-            "rewardGemType": "water",
+            "rewardGemType": "wood",
             "rewardGemCount": 1,
             "points": 1,
             "imageUrl": "/EvoCapture/level1/1007.webp"
         },
         {
-            "id": 8,
-            "name": "炙羽鸟",
+            "id": 1008,
+            "name": "骨火灵",
             "level": 1,
             "cost": {
-                "metal": 0,
+                "metal": 1,
                 "wood": 0,
-                "water": 1,
-                "fire": 1,
-                "earth": 0,
+                "water": 0,
+                "fire": 2,
+                "earth": 1,
                 "special": 0
             },
             "rewardGemType": "fire",
@@ -136,179 +136,719 @@
             "imageUrl": "/EvoCapture/level1/1008.webp"
         },
         {
-            "id": 9,
-            "name": "炎泡怪",
+            "id": 1009,
+            "name": "小糖人",
             "level": 1,
             "cost": {
                 "metal": 0,
-                "wood": 0,
-                "water": 0,
-                "fire": 2,
+                "wood": 1,
+                "water": 1,
+                "fire": 1,
                 "earth": 0,
                 "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 1,
-            "points": 0,
+            "points": 1,
             "imageUrl": "/EvoCapture/level1/1009.webp"
         },
         {
-            "id": 10,
-            "name": "水灵芽",
+            "id": 1010,
+            "name": "空指针",
+            "level": 1,
+            "cost": {
+                "metal": 2,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 1
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 1,
+            "points": 2,
+            "imageUrl": "/EvoCapture/level1/1010.webp"
+        }, {
+            "id": 1101,
+            "name": "小鱼儿",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 1,
+                "fire": 1,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "water",
+            "rewardGemCount": 0,
+            "points": 0,
+            "imageUrl": "/EvoCapture/level1/1001.webp"
+        },
+        {
+            "id": 1102,
+            "name": "炎猴仔",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 3,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 1,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level1/1002.webp"
+        },
+        {
+            "id": 1103,
+            "name": "豆芽芽",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 2,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "wood",
+            "rewardGemCount": 0,
+            "points": 0,
+            "imageUrl": "/EvoCapture/level1/1003.webp"
+        },
+        {
+            "id": 1104,
+            "name": "嘟嘟石",
+            "level": 1,
+            "cost": {
+                "metal": 1,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "earth",
+            "rewardGemCount": 0,
+            "points": 0,
+            "imageUrl": "/EvoCapture/level1/1004.webp"
+        },
+        {
+            "id": 1105,
+            "name": "金属球",
+            "level": 1,
+            "cost": {
+                "metal": 1,
+                "wood": 0,
+                "water": 0,
+                "fire": 2,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 1,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level1/1005.webp"
+        },
+        {
+            "id": 1106,
+            "name": "懒洋洋",
             "level": 1,
             "cost": {
                 "metal": 0,
                 "wood": 0,
                 "water": 1,
                 "fire": 0,
-                "earth": 0,
+                "earth": 1,
                 "special": 0
             },
-            "rewardGemType": "fire",
-            "rewardGemCount": 1,
-            "points": 1,
-            "imageUrl": "/EvoCapture/level1/1010.webp"
-        }
-    ],
-    "Level2": [{
-            "id": 1,
-            "name": "水灵兽",
-            "level": 2,
-            "cost": {
-                "metal": 0,
-                "wood": 0,
-                "water": 3,
-                "fire": 0,
-                "earth": 0,
-                "special": 0
-            },
-            "rewardGemType": "water",
-            "rewardGemCount": 2,
-            "points": 1,
-            "imageUrl": "/EvoCapture/level2/2001.webp"
+            "rewardGemType": "earth",
+            "rewardGemCount": 0,
+            "points": 0,
+            "imageUrl": "/EvoCapture/level1/1006.webp"
         },
         {
-            "id": 2,
-            "name": "翠纹鹿",
-            "level": 2,
+            "id": 1107,
+            "name": "绿叶童",
+            "level": 1,
             "cost": {
                 "metal": 0,
                 "wood": 1,
-                "water": 2,
+                "water": 1,
                 "fire": 0,
                 "earth": 0,
                 "special": 0
             },
             "rewardGemType": "wood",
             "rewardGemCount": 1,
-            "points": 2,
-            "imageUrl": "/EvoCapture/level2/2002.webp"
+            "points": 1,
+            "imageUrl": "/EvoCapture/level1/1007.webp"
         },
         {
-            "id": 3,
-            "name": "浪纹鱼",
-            "level": 2,
+            "id": 1108,
+            "name": "骨火灵",
+            "level": 1,
+            "cost": {
+                "metal": 1,
+                "wood": 0,
+                "water": 0,
+                "fire": 2,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 1,
+            "points": 2,
+            "imageUrl": "/EvoCapture/level1/1008.webp"
+        },
+        {
+            "id": 1109,
+            "name": "小糖人",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 1,
+                "water": 1,
+                "fire": 1,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "water",
+            "rewardGemCount": 1,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level1/1009.webp"
+        },
+        {
+            "id": 1110,
+            "name": "空指针",
+            "level": 1,
+            "cost": {
+                "metal": 2,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 1
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 1,
+            "points": 2,
+            "imageUrl": "/EvoCapture/level1/1010.webp"
+        }, {
+            "id": 1201,
+            "name": "小鱼儿",
+            "level": 1,
             "cost": {
                 "metal": 0,
                 "wood": 0,
-                "water": 3,
-                "fire": 0,
+                "water": 1,
+                "fire": 1,
                 "earth": 0,
                 "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 0,
+            "points": 0,
+            "imageUrl": "/EvoCapture/level1/1001.webp"
+        },
+        {
+            "id": 1202,
+            "name": "炎猴仔",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 3,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 1,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level1/1002.webp"
+        },
+        {
+            "id": 1203,
+            "name": "豆芽芽",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 2,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "wood",
+            "rewardGemCount": 0,
+            "points": 0,
+            "imageUrl": "/EvoCapture/level1/1003.webp"
+        },
+        {
+            "id": 1204,
+            "name": "嘟嘟石",
+            "level": 1,
+            "cost": {
+                "metal": 1,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "earth",
+            "rewardGemCount": 0,
+            "points": 0,
+            "imageUrl": "/EvoCapture/level1/1004.webp"
+        },
+        {
+            "id": 1205,
+            "name": "金属球",
+            "level": 1,
+            "cost": {
+                "metal": 1,
+                "wood": 0,
+                "water": 0,
+                "fire": 2,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 1,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level1/1005.webp"
+        },
+        {
+            "id": 1206,
+            "name": "懒洋洋",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 1,
+                "fire": 0,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "earth",
+            "rewardGemCount": 0,
+            "points": 0,
+            "imageUrl": "/EvoCapture/level1/1006.webp"
+        },
+        {
+            "id": 1207,
+            "name": "绿叶童",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 1,
+                "water": 1,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "wood",
+            "rewardGemCount": 1,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level1/1007.webp"
+        },
+        {
+            "id": 1208,
+            "name": "骨火灵",
+            "level": 1,
+            "cost": {
+                "metal": 1,
+                "wood": 0,
+                "water": 0,
+                "fire": 2,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 1,
+            "points": 2,
+            "imageUrl": "/EvoCapture/level1/1008.webp"
+        },
+        {
+            "id": 1209,
+            "name": "小糖人",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 1,
+                "water": 1,
+                "fire": 1,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "water",
+            "rewardGemCount": 1,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level1/1009.webp"
+        },
+        {
+            "id": 1210,
+            "name": "空指针",
+            "level": 1,
+            "cost": {
+                "metal": 2,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 1
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 1,
+            "points": 2,
+            "imageUrl": "/EvoCapture/level1/1010.webp"
+        }, {
+            "id": 1301,
+            "name": "小鱼儿",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 1,
+                "fire": 1,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "water",
+            "rewardGemCount": 0,
+            "points": 0,
+            "imageUrl": "/EvoCapture/level1/1001.webp"
+        },
+        {
+            "id": 1302,
+            "name": "炎猴仔",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 3,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 1,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level1/1002.webp"
+        },
+        {
+            "id": 1303,
+            "name": "豆芽芽",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 2,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "wood",
+            "rewardGemCount": 0,
+            "points": 0,
+            "imageUrl": "/EvoCapture/level1/1003.webp"
+        },
+        {
+            "id": 1304,
+            "name": "嘟嘟石",
+            "level": 1,
+            "cost": {
+                "metal": 1,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "earth",
+            "rewardGemCount": 0,
+            "points": 0,
+            "imageUrl": "/EvoCapture/level1/1004.webp"
+        },
+        {
+            "id": 1305,
+            "name": "金属球",
+            "level": 1,
+            "cost": {
+                "metal": 1,
+                "wood": 0,
+                "water": 0,
+                "fire": 2,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 1,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level1/1005.webp"
+        },
+        {
+            "id": 1306,
+            "name": "懒洋洋",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 1,
+                "fire": 0,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "earth",
+            "rewardGemCount": 0,
+            "points": 0,
+            "imageUrl": "/EvoCapture/level1/1006.webp"
+        },
+        {
+            "id": 1307,
+            "name": "绿叶童",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 1,
+                "water": 1,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "wood",
+            "rewardGemCount": 1,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level1/1007.webp"
+        },
+        {
+            "id": 1308,
+            "name": "骨火灵",
+            "level": 1,
+            "cost": {
+                "metal": 1,
+                "wood": 0,
+                "water": 0,
+                "fire": 2,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 1,
+            "points": 2,
+            "imageUrl": "/EvoCapture/level1/1008.webp"
+        },
+        {
+            "id": 1309,
+            "name": "小糖人",
+            "level": 1,
+            "cost": {
+                "metal": 0,
+                "wood": 1,
+                "water": 1,
+                "fire": 1,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "water",
+            "rewardGemCount": 1,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level1/1009.webp"
+        },
+        {
+            "id": 1310,
+            "name": "空指针",
+            "level": 1,
+            "cost": {
+                "metal": 2,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 1
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 1,
+            "points": 2,
+            "imageUrl": "/EvoCapture/level1/1010.webp"
+        }
+    ],
+    "Level2": [{
+            "id": 2001,
+            "name": "大鱼群",
+            "level": 2,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 3,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "water",
+            "rewardGemCount": 1,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level2/2001.webp"
+        },
+        {
+            "id": 2002,
+            "name": "炎斗猴",
+            "level": 2,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 3,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 1,
+            "points": 2,
+            "imageUrl": "/EvoCapture/level2/2002.webp"
+        },
+        {
+            "id": 2003,
+            "name": "松树将",
+            "level": 2,
+            "cost": {
+                "metal": 0,
+                "wood": 3,
+                "water": 1,
+                "fire": 0,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "wood",
+            "rewardGemCount": 1,
             "points": 3,
             "imageUrl": "/EvoCapture/level2/2003.webp"
         },
         {
-            "id": 4,
-            "name": "木灵狐",
+            "id": 2004,
+            "name": "岩呆呆",
             "level": 2,
             "cost": {
                 "metal": 0,
-                "wood": 1,
-                "water": 2,
+                "wood": 0,
+                "water": 1,
                 "fire": 0,
-                "earth": 0,
+                "earth": 3,
                 "special": 0
             },
-            "rewardGemType": "wood",
+            "rewardGemType": "earth",
             "rewardGemCount": 1,
-            "points": 0,
+            "points": 2,
             "imageUrl": "/EvoCapture/level2/2004.webp"
         },
         {
-            "id": 5,
-            "name": "碧涛象",
+            "id": 2005,
+            "name": "雷乌云",
             "level": 2,
             "cost": {
-                "metal": 0,
+                "metal": 4,
                 "wood": 0,
-                "water": 3,
+                "water": 2,
                 "fire": 0,
                 "earth": 0,
                 "special": 0
             },
             "rewardGemType": "metal",
-            "rewardGemCount": 1,
-            "points": 1,
+            "rewardGemCount": 2,
+            "points": 3,
             "imageUrl": "/EvoCapture/level2/2005.webp"
         },
         {
-            "id": 6,
-            "name": "叶羽兽",
+            "id": 2006,
+            "name": "睡觉羊",
             "level": 2,
             "cost": {
                 "metal": 0,
-                "wood": 1,
+                "wood": 2,
+                "water": 1,
+                "fire": 0,
+                "earth": 2,
+                "special": 0
+            },
+            "rewardGemType": "earth",
+            "rewardGemCount": 2,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level2/2006.webp"
+        },
+        {
+            "id": 2007,
+            "name": "藤萝灵",
+            "level": 2,
+            "cost": {
+                "metal": 0,
+                "wood": 3,
                 "water": 2,
                 "fire": 0,
-                "earth": 0,
+                "earth": 1,
                 "special": 0
             },
             "rewardGemType": "wood",
             "rewardGemCount": 1,
-            "points": 2,
-            "imageUrl": "/EvoCapture/level2/2006.webp"
+            "points": 4,
+            "imageUrl": "/EvoCapture/level2/2007.webp"
         },
         {
-            "id": 7,
-            "name": "银鳞龟",
+            "id": 2008,
+            "name": "炎骨王",
             "level": 2,
             "cost": {
-                "metal": 0,
+                "metal": 2,
                 "wood": 0,
+                "water": 0,
+                "fire": 5,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 2,
+            "points": 4,
+            "imageUrl": "/EvoCapture/level2/2008.webp"
+        },
+        {
+            "id": 2009,
+            "name": "米其林",
+            "level": 2,
+            "cost": {
+                "metal": 1,
+                "wood": 1,
                 "water": 3,
                 "fire": 0,
                 "earth": 0,
                 "special": 0
             },
-            "rewardGemType": "metal",
+            "rewardGemType": "water",
             "rewardGemCount": 1,
             "points": 3,
-            "imageUrl": "/EvoCapture/level2/2007.webp"
+            "imageUrl": "/EvoCapture/level2/2009.webp"
         },
         {
-            "id": 8,
-            "name": "花冠鸟",
+            "id": 2010,
+            "name": "语法怪",
             "level": 2,
             "cost": {
-                "metal": 0,
-                "wood": 1,
-                "water": 2,
+                "metal": 6,
+                "wood": 0,
+                "water": 0,
                 "fire": 0,
                 "earth": 0,
                 "special": 0
             },
-            "rewardGemType": "wood",
-            "rewardGemCount": 1,
-            "points": 0,
-            "imageUrl": "/EvoCapture/level2/2008.webp"
-        },
-        {
-            "id": 9,
-            "name": "水晶蝶",
+            "rewardGemType": "metal",
+            "rewardGemCount": 3,
+            "points": 3,
+            "imageUrl": "/EvoCapture/level2/2010.webp"
+        }, {
+            "id": 2101,
+            "name": "大鱼群",
             "level": 2,
             "cost": {
                 "metal": 0,
@@ -321,365 +861,839 @@
             "rewardGemType": "water",
             "rewardGemCount": 1,
             "points": 1,
-            "imageUrl": "/EvoCapture/level2/2009.webp"
+            "imageUrl": "/EvoCapture/level2/2001.webp"
         },
         {
-            "id": 10,
-            "name": "青叶蛇",
+            "id": 2102,
+            "name": "炎斗猴",
             "level": 2,
             "cost": {
                 "metal": 0,
-                "wood": 1,
+                "wood": 0,
+                "water": 0,
+                "fire": 3,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 1,
+            "points": 2,
+            "imageUrl": "/EvoCapture/level2/2002.webp"
+        },
+        {
+            "id": 2103,
+            "name": "松树将",
+            "level": 2,
+            "cost": {
+                "metal": 0,
+                "wood": 3,
+                "water": 1,
+                "fire": 0,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "wood",
+            "rewardGemCount": 1,
+            "points": 3,
+            "imageUrl": "/EvoCapture/level2/2003.webp"
+        },
+        {
+            "id": 2104,
+            "name": "岩呆呆",
+            "level": 2,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 1,
+                "fire": 0,
+                "earth": 3,
+                "special": 0
+            },
+            "rewardGemType": "earth",
+            "rewardGemCount": 1,
+            "points": 2,
+            "imageUrl": "/EvoCapture/level2/2004.webp"
+        },
+        {
+            "id": 2105,
+            "name": "雷乌云",
+            "level": 2,
+            "cost": {
+                "metal": 4,
+                "wood": 0,
                 "water": 2,
                 "fire": 0,
                 "earth": 0,
                 "special": 0
             },
+            "rewardGemType": "metal",
+            "rewardGemCount": 2,
+            "points": 3,
+            "imageUrl": "/EvoCapture/level2/2005.webp"
+        },
+        {
+            "id": 2106,
+            "name": "睡觉羊",
+            "level": 2,
+            "cost": {
+                "metal": 0,
+                "wood": 2,
+                "water": 1,
+                "fire": 0,
+                "earth": 2,
+                "special": 0
+            },
+            "rewardGemType": "earth",
+            "rewardGemCount": 2,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level2/2006.webp"
+        },
+        {
+            "id": 2107,
+            "name": "藤萝灵",
+            "level": 2,
+            "cost": {
+                "metal": 0,
+                "wood": 3,
+                "water": 2,
+                "fire": 0,
+                "earth": 1,
+                "special": 0
+            },
             "rewardGemType": "wood",
             "rewardGemCount": 1,
+            "points": 4,
+            "imageUrl": "/EvoCapture/level2/2007.webp"
+        },
+        {
+            "id": 2108,
+            "name": "炎骨王",
+            "level": 2,
+            "cost": {
+                "metal": 2,
+                "wood": 0,
+                "water": 0,
+                "fire": 5,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 2,
+            "points": 4,
+            "imageUrl": "/EvoCapture/level2/2008.webp"
+        },
+        {
+            "id": 2109,
+            "name": "米其林",
+            "level": 2,
+            "cost": {
+                "metal": 1,
+                "wood": 1,
+                "water": 3,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "water",
+            "rewardGemCount": 1,
+            "points": 3,
+            "imageUrl": "/EvoCapture/level2/2009.webp"
+        },
+        {
+            "id": 2110,
+            "name": "语法怪",
+            "level": 2,
+            "cost": {
+                "metal": 6,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 3,
+            "points": 3,
+            "imageUrl": "/EvoCapture/level2/2010.webp"
+        }, {
+            "id": 2201,
+            "name": "大鱼群",
+            "level": 2,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 3,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "water",
+            "rewardGemCount": 1,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level2/2001.webp"
+        },
+        {
+            "id": 2202,
+            "name": "炎斗猴",
+            "level": 2,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 3,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 1,
             "points": 2,
+            "imageUrl": "/EvoCapture/level2/2002.webp"
+        },
+        {
+            "id": 2203,
+            "name": "松树将",
+            "level": 2,
+            "cost": {
+                "metal": 0,
+                "wood": 3,
+                "water": 1,
+                "fire": 0,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "wood",
+            "rewardGemCount": 1,
+            "points": 3,
+            "imageUrl": "/EvoCapture/level2/2003.webp"
+        },
+        {
+            "id": 2204,
+            "name": "岩呆呆",
+            "level": 2,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 1,
+                "fire": 0,
+                "earth": 3,
+                "special": 0
+            },
+            "rewardGemType": "earth",
+            "rewardGemCount": 1,
+            "points": 2,
+            "imageUrl": "/EvoCapture/level2/2004.webp"
+        },
+        {
+            "id": 2205,
+            "name": "雷乌云",
+            "level": 2,
+            "cost": {
+                "metal": 4,
+                "wood": 0,
+                "water": 2,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 2,
+            "points": 3,
+            "imageUrl": "/EvoCapture/level2/2005.webp"
+        },
+        {
+            "id": 2206,
+            "name": "睡觉羊",
+            "level": 2,
+            "cost": {
+                "metal": 0,
+                "wood": 2,
+                "water": 1,
+                "fire": 0,
+                "earth": 2,
+                "special": 0
+            },
+            "rewardGemType": "earth",
+            "rewardGemCount": 2,
+            "points": 1,
+            "imageUrl": "/EvoCapture/level2/2006.webp"
+        },
+        {
+            "id": 2207,
+            "name": "藤萝灵",
+            "level": 2,
+            "cost": {
+                "metal": 0,
+                "wood": 3,
+                "water": 2,
+                "fire": 0,
+                "earth": 1,
+                "special": 0
+            },
+            "rewardGemType": "wood",
+            "rewardGemCount": 1,
+            "points": 4,
+            "imageUrl": "/EvoCapture/level2/2007.webp"
+        },
+        {
+            "id": 2208,
+            "name": "炎骨王",
+            "level": 2,
+            "cost": {
+                "metal": 2,
+                "wood": 0,
+                "water": 0,
+                "fire": 5,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 2,
+            "points": 4,
+            "imageUrl": "/EvoCapture/level2/2008.webp"
+        },
+        {
+            "id": 2209,
+            "name": "米其林",
+            "level": 2,
+            "cost": {
+                "metal": 1,
+                "wood": 1,
+                "water": 3,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "water",
+            "rewardGemCount": 1,
+            "points": 3,
+            "imageUrl": "/EvoCapture/level2/2009.webp"
+        },
+        {
+            "id": 2210,
+            "name": "语法怪",
+            "level": 2,
+            "cost": {
+                "metal": 6,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 3,
+            "points": 3,
             "imageUrl": "/EvoCapture/level2/2010.webp"
         }
     ],
     "Level3": [{
-            "id": 1,
-            "name": "焰羽龙",
+            "id": 3001,
+            "name": "蓝虎鲨",
             "level": 3,
             "cost": {
                 "metal": 0,
-                "wood": 3,
-                "water": 0,
-                "fire": 2,
+                "wood": 0,
+                "water": 7,
+                "fire": 0,
                 "earth": 0,
                 "special": 0
             },
-            "rewardGemType": "fire",
+            "rewardGemType": "water",
             "rewardGemCount": 2,
-            "points": 1,
+            "points": 6,
             "imageUrl": "/EvoCapture/level3/3001.webp"
         },
         {
-            "id": 2,
-            "name": "水龙童",
+            "id": 3002,
+            "name": "烈焰猩",
             "level": 3,
             "cost": {
                 "metal": 0,
-                "wood": 2,
+                "wood": 0,
+                "water": 0,
+                "fire": 6,
+                "earth": 2,
+                "special": 0
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 2,
+            "points": 4,
+            "imageUrl": "/EvoCapture/level3/3002.webp"
+        },
+        {
+            "id": 3003,
+            "name": "火树王",
+            "level": 3,
+            "cost": {
+                "metal": 0,
+                "wood": 6,
+                "water": 0,
+                "fire": 4,
+                "earth": 2,
+                "special": 0
+            },
+            "rewardGemType": "wood",
+            "rewardGemCount": 2,
+            "points": 8,
+            "imageUrl": "/EvoCapture/level3/3003.webp"
+        },
+        {
+            "id": 3004,
+            "name": "岩暴兽",
+            "level": 3,
+            "cost": {
+                "metal": 2,
+                "wood": 0,
                 "water": 0,
                 "fire": 3,
+                "earth": 7,
+                "special": 0
+            },
+            "rewardGemType": "earth",
+            "rewardGemCount": 3,
+            "points": 5,
+            "imageUrl": "/EvoCapture/level3/3004.webp"
+        },
+        {
+            "id": 3005,
+            "name": "爆雷胆",
+            "level": 3,
+            "cost": {
+                "metal": 5,
+                "wood": 0,
+                "water": 2,
+                "fire": 4,
+                "earth": 3,
+                "special": 1
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 3,
+            "points": 9,
+            "imageUrl": "/EvoCapture/level3/3005.webp"
+        },
+        {
+            "id": 3006,
+            "name": "狂角羊",
+            "level": 3,
+            "cost": {
+                "metal": 0,
+                "wood": 4,
+                "water": 1,
+                "fire": 1,
+                "earth": 6,
+                "special": 0
+            },
+            "rewardGemType": "earth",
+            "rewardGemCount": 2,
+            "points": 8,
+            "imageUrl": "/EvoCapture/level3/3006.webp"
+        },
+        {
+            "id": 3007,
+            "name": "炎藤魔",
+            "level": 3,
+            "cost": {
+                "metal": 0,
+                "wood": 7,
+                "water": 2,
+                "fire": 4,
+                "earth": 2,
+                "special": 0
+            },
+            "rewardGemType": "wood",
+            "rewardGemCount": 2,
+            "points": 7,
+            "imageUrl": "/EvoCapture/level3/3007.webp"
+        },
+        {
+            "id": 3008,
+            "name": "黑焰魂",
+            "level": 3,
+            "cost": {
+                "metal": 2,
+                "wood": 0,
+                "water": 0,
+                "fire": 9,
+                "earth": 5,
+                "special": 1
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 3,
+            "points": 11,
+            "imageUrl": "/EvoCapture/level3/3008.webp"
+        },
+        {
+            "id": 3009,
+            "name": "糖王了",
+            "level": 3,
+            "cost": {
+                "metal": 2,
+                "wood": 2,
+                "water": 4,
+                "fire": 2,
+                "earth": 2,
+                "special": 0
+            },
+            "rewardGemType": "water",
+            "rewardGemCount": 2,
+            "points": 6,
+            "imageUrl": "/EvoCapture/level3/3009.webp"
+        },
+        {
+            "id": 3010,
+            "name": "404",
+            "level": 3,
+            "cost": {
+                "metal": 9,
+                "wood": 3,
+                "water": 3,
+                "fire": 3,
+                "earth": 3,
+                "special": 1
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 3,
+            "points": 12,
+            "imageUrl": "/EvoCapture/level3/3010.webp"
+        }, {
+            "id": 3101,
+            "name": "蓝虎鲨",
+            "level": 3,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 7,
+                "fire": 0,
                 "earth": 0,
                 "special": 0
             },
             "rewardGemType": "water",
             "rewardGemCount": 2,
-            "points": 2,
+            "points": 6,
+            "imageUrl": "/EvoCapture/level3/3001.webp"
+        },
+        {
+            "id": 3102,
+            "name": "烈焰猩",
+            "level": 3,
+            "cost": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 6,
+                "earth": 2,
+                "special": 0
+            },
+            "rewardGemType": "fire",
+            "rewardGemCount": 2,
+            "points": 4,
             "imageUrl": "/EvoCapture/level3/3002.webp"
         },
         {
-            "id": 3,
-            "name": "火灵蛇",
+            "id": 3103,
+            "name": "火树王",
             "level": 3,
             "cost": {
                 "metal": 0,
-                "wood": 3,
+                "wood": 6,
                 "water": 0,
-                "fire": 2,
-                "earth": 0,
+                "fire": 4,
+                "earth": 2,
                 "special": 0
             },
-            "rewardGemType": "fire",
-            "rewardGemCount": 3,
-            "points": 3,
+            "rewardGemType": "wood",
+            "rewardGemCount": 2,
+            "points": 8,
             "imageUrl": "/EvoCapture/level3/3003.webp"
         },
         {
-            "id": 4,
-            "name": "潮怒兽",
+            "id": 3104,
+            "name": "岩暴兽",
             "level": 3,
             "cost": {
-                "metal": 0,
-                "wood": 2,
+                "metal": 2,
+                "wood": 0,
                 "water": 0,
                 "fire": 3,
-                "earth": 0,
+                "earth": 7,
                 "special": 0
             },
-            "rewardGemType": "water",
-            "rewardGemCount": 1,
-            "points": 4,
+            "rewardGemType": "earth",
+            "rewardGemCount": 3,
+            "points": 5,
             "imageUrl": "/EvoCapture/level3/3004.webp"
         },
         {
-            "id": 5,
-            "name": "熔岩豹",
+            "id": 3105,
+            "name": "爆雷胆",
             "level": 3,
             "cost": {
-                "metal": 0,
-                "wood": 3,
-                "water": 0,
-                "fire": 2,
-                "earth": 0,
-                "special": 0
+                "metal": 5,
+                "wood": 0,
+                "water": 2,
+                "fire": 4,
+                "earth": 3,
+                "special": 1
             },
-            "rewardGemType": "fire",
-            "rewardGemCount": 1,
-            "points": 0,
+            "rewardGemType": "metal",
+            "rewardGemCount": 3,
+            "points": 9,
             "imageUrl": "/EvoCapture/level3/3005.webp"
         },
         {
-            "id": 6,
-            "name": "冰火龟",
+            "id": 3106,
+            "name": "狂角羊",
             "level": 3,
             "cost": {
                 "metal": 0,
-                "wood": 2,
-                "water": 0,
-                "fire": 3,
-                "earth": 0,
+                "wood": 4,
+                "water": 1,
+                "fire": 1,
+                "earth": 6,
                 "special": 0
             },
-            "rewardGemType": "water",
-            "rewardGemCount": 1,
-            "points": 1,
+            "rewardGemType": "earth",
+            "rewardGemCount": 2,
+            "points": 8,
             "imageUrl": "/EvoCapture/level3/3006.webp"
         },
         {
-            "id": 7,
-            "name": "炎纹虎",
+            "id": 3107,
+            "name": "炎藤魔",
             "level": 3,
             "cost": {
                 "metal": 0,
-                "wood": 3,
-                "water": 0,
-                "fire": 2,
-                "earth": 0,
+                "wood": 7,
+                "water": 2,
+                "fire": 4,
+                "earth": 2,
                 "special": 0
             },
-            "rewardGemType": "fire",
-            "rewardGemCount": 1,
-            "points": 2,
+            "rewardGemType": "wood",
+            "rewardGemCount": 2,
+            "points": 7,
             "imageUrl": "/EvoCapture/level3/3007.webp"
         },
         {
-            "id": 8,
-            "name": "海鸣鸟",
+            "id": 3108,
+            "name": "黑焰魂",
             "level": 3,
             "cost": {
-                "metal": 0,
-                "wood": 2,
+                "metal": 2,
+                "wood": 0,
                 "water": 0,
-                "fire": 3,
-                "earth": 0,
-                "special": 0
+                "fire": 9,
+                "earth": 5,
+                "special": 1
             },
-            "rewardGemType": "water",
-            "rewardGemCount": 1,
-            "points": 3,
+            "rewardGemType": "fire",
+            "rewardGemCount": 3,
+            "points": 11,
             "imageUrl": "/EvoCapture/level3/3008.webp"
         },
         {
-            "id": 9,
-            "name": "赤焰灵",
+            "id": 3109,
+            "name": "糖王了",
             "level": 3,
             "cost": {
-                "metal": 0,
-                "wood": 3,
-                "water": 0,
-                "fire": 2,
-                "earth": 0,
-                "special": 0
-            },
-            "rewardGemType": "fire",
-            "rewardGemCount": 1,
-            "points": 4,
-            "imageUrl": "/EvoCapture/level3/3009.webp"
-        },
-        {
-            "id": 10,
-            "name": "潮声狐",
-            "level": 3,
-            "cost": {
-                "metal": 0,
+                "metal": 2,
                 "wood": 2,
-                "water": 0,
-                "fire": 3,
-                "earth": 0,
+                "water": 4,
+                "fire": 2,
+                "earth": 2,
                 "special": 0
             },
             "rewardGemType": "water",
-            "rewardGemCount": 1,
-            "points": 0,
+            "rewardGemCount": 2,
+            "points": 6,
+            "imageUrl": "/EvoCapture/level3/3009.webp"
+        },
+        {
+            "id": 3110,
+            "name": "404",
+            "level": 3,
+            "cost": {
+                "metal": 9,
+                "wood": 3,
+                "water": 3,
+                "fire": 3,
+                "earth": 3,
+                "special": 1
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 3,
+            "points": 12,
             "imageUrl": "/EvoCapture/level3/3010.webp"
         }
     ],
     "Level9": [{
-            "id": 1,
-            "name": "烈焰魔龙",
+            "id": 9001,
+            "name": "赛博喵侠",
+            "level": 9,
+            "cost": {
+                "metal": 11,
+                "wood": 0,
+                "water": 0,
+                "fire": 2,
+                "earth": 6,
+                "special": 2
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 4,
+            "points": 15,
+            "imageUrl": "/EvoCapture/level9/9001.webp"
+        },
+        {
+            "id": 9002,
+            "name": "凛冬巨熊",
+            "level": 9,
+            "cost": {
+                "metal": 2,
+                "wood": 0,
+                "water": 11,
+                "fire": 2,
+                "earth": 9,
+                "special": 1
+            },
+            "rewardGemType": "water",
+            "rewardGemCount": 3,
+            "points": 17,
+            "imageUrl": "/EvoCapture/level9/9002.webp"
+        },
+        {
+            "id": 9003,
+            "name": "暗夜骑魂",
+            "level": 9,
+            "cost": {
+                "metal": 11,
+                "wood": 0,
+                "water": 0,
+                "fire": 6,
+                "earth": 4,
+                "special": 1
+            },
+            "rewardGemType": "metal",
+            "rewardGemCount": 2,
+            "points": 13,
+            "imageUrl": "/EvoCapture/level9/9003.webp"
+        },
+        {
+            "id": 9004,
+            "name": "沧海龙神",
             "level": 9,
             "cost": {
                 "metal": 0,
-                "wood": 2,
-                "water": 3,
-                "fire": 4,
+                "wood": 4,
+                "water": 14,
+                "fire": 2,
+                "earth": 2,
+                "special": 1
+            },
+            "rewardGemType": "water",
+            "rewardGemCount": 3,
+            "points": 14,
+            "imageUrl": "/EvoCapture/level9/9004.webp"
+        },
+        {
+            "id": 9005,
+            "name": "炽金小子",
+            "level": 9,
+            "cost": {
+                "metal": 5,
+                "wood": 0,
+                "water": 0,
+                "fire": 11,
                 "earth": 0,
                 "special": 1
             },
             "rewardGemType": "metal",
             "rewardGemCount": 2,
-            "points": 1,
-            "imageUrl": "/EvoCapture/level9/9001.webp"
-        },
-        {
-            "id": 2,
-            "name": "苍木巨灵",
-            "level": 9,
-            "cost": {
-                "metal": 0,
-                "wood": 3,
-                "water": 4,
-                "fire": 5,
-                "earth": 0,
-                "special": 1
-            },
-            "rewardGemType": "earth",
-            "rewardGemCount": 3,
-            "points": 2,
-            "imageUrl": "/EvoCapture/level9/9002.webp"
-        },
-        {
-            "id": 3,
-            "name": "玄岩魔像",
-            "level": 9,
-            "cost": {
-                "metal": 1,
-                "wood": 2,
-                "water": 3,
-                "fire": 4,
-                "earth": 0,
-                "special": 0
-            },
-            "rewardGemType": "earth",
-            "rewardGemCount": 1,
-            "points": 3,
-            "imageUrl": "/EvoCapture/level9/9003.webp"
-        },
-        {
-            "id": 4,
-            "name": "焚野龙",
-            "level": 9,
-            "cost": {
-                "metal": 0,
-                "wood": 3,
-                "water": 4,
-                "fire": 5,
-                "earth": 0,
-                "special": 0
-            },
-            "rewardGemType": "earth",
-            "rewardGemCount": 1,
-            "points": 4,
-            "imageUrl": "/EvoCapture/level9/9004.webp"
-        },
-        {
-            "id": 5,
-            "name": "地核兽",
-            "level": 9,
-            "cost": {
-                "metal": 1,
-                "wood": 2,
-                "water": 3,
-                "fire": 4,
-                "earth": 0,
-                "special": 0
-            },
-            "rewardGemType": "earth",
-            "rewardGemCount": 1,
-            "points": 5,
+            "points": 9,
             "imageUrl": "/EvoCapture/level9/9005.webp"
         },
         {
-            "id": 6,
-            "name": "焦土魔灵",
+            "id": 9006,
+            "name": "终结机皇",
             "level": 9,
             "cost": {
-                "metal": 0,
-                "wood": 3,
-                "water": 4,
-                "fire": 5,
-                "earth": 0,
-                "special": 0
+                "metal": 15,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 5,
+                "special": 2
             },
-            "rewardGemType": "earth",
-            "rewardGemCount": 1,
-            "points": 6,
+            "rewardGemType": "metal",
+            "rewardGemCount": 2,
+            "points": 16,
             "imageUrl": "/EvoCapture/level9/9006.webp"
         },
         {
-            "id": 7,
-            "name": "赤爆神",
+            "id": 9007,
+            "name": "雪洁白鹿",
             "level": 9,
             "cost": {
                 "metal": 1,
                 "wood": 2,
                 "water": 3,
                 "fire": 4,
-                "earth": 0,
+                "earth": 5,
                 "special": 0
             },
-            "rewardGemType": "earth",
-            "rewardGemCount": 1,
+            "rewardGemType": "wood",
+            "rewardGemCount": 2,
             "points": 7,
             "imageUrl": "/EvoCapture/level9/9007.webp"
         },
         {
-            "id": 8,
-            "name": "焰影魔狮",
+            "id": 9008,
+            "name": "烈阳魔猴",
             "level": 9,
             "cost": {
                 "metal": 0,
-                "wood": 3,
-                "water": 4,
-                "fire": 5,
-                "earth": 0,
-                "special": 0
+                "wood": 0,
+                "water": 0,
+                "fire": 18,
+                "earth": 6,
+                "special": 2
             },
-            "rewardGemType": "earth",
-            "rewardGemCount": 1,
-            "points": 8,
+            "rewardGemType": "fire",
+            "rewardGemCount": 3,
+            "points": 18,
             "imageUrl": "/EvoCapture/level9/9008.webp"
         },
         {
-            "id": 9,
-            "name": "灼魂兽",
+            "id": 9009,
+            "name": "凤凰天翼",
             "level": 9,
             "cost": {
-                "metal": 1,
-                "wood": 2,
-                "water": 3,
-                "fire": 4,
-                "earth": 0,
-                "special": 0
+                "metal": 3,
+                "wood": 3,
+                "water": 8,
+                "fire": 15,
+                "earth": 8,
+                "special": 1
             },
-            "rewardGemType": "earth",
-            "rewardGemCount": 1,
-            "points": 9,
+            "rewardGemType": "fire",
+            "rewardGemCount": 3,
+            "points": 19,
             "imageUrl": "/EvoCapture/level9/9009.webp"
         },
         {
-            "id": 10,
-            "name": "终焰使者",
+            "id": 9010,
+            "name": "炎狱魔牛",
             "level": 9,
             "cost": {
-                "metal": 0,
-                "wood": 3,
+                "metal": 3,
+                "wood": 0,
                 "water": 4,
-                "fire": 5,
-                "earth": 0,
-                "special": 0
+                "fire": 9,
+                "earth": 6,
+                "special": 2
             },
-            "rewardGemType": "earth",
-            "rewardGemCount": 1,
-            "points": 0,
+            "rewardGemType": "fire",
+            "rewardGemCount": 2,
+            "points": 12,
             "imageUrl": "/EvoCapture/level9/9010.webp"
         }
     ]

@@ -18,6 +18,16 @@
     margin-bottom: 20px;
 }
 
+.rule {
+    color: #5437bd;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.rule:hover {
+    transform: scale(1.2);
+}
+
 /* 可选角色和已加入玩家列表的公共样式 */
 .available-roles,
 .joined-players {
