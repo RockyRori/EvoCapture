@@ -28,70 +28,6 @@ const Period = {
   skip: 'skip',
 };
 
-// 示例玩家数据
-const Players: Player[] = [
-  {
-    id: 1,
-    name: 'John',
-    avatar: '/EvoCapture/avatar/John.webp',
-    gems: { metal: 0, wood: 0, water: 0, fire: 0, earth: 0, special: 0 },
-    tokens: { metal: 0, wood: 0, water: 0, fire: 0, earth: 0, special: 0 },
-    capturedcards: [],
-    reservedCards: [],
-    points: 0,
-  },
-  {
-    id: 2,
-    name: 'Emma',
-    avatar: '/EvoCapture/avatar/Emma.webp',
-    gems: { metal: 0, wood: 0, water: 0, fire: 0, earth: 0, special: 0 },
-    tokens: { metal: 0, wood: 0, water: 0, fire: 0, earth: 0, special: 0 },
-    capturedcards: [],
-    reservedCards: [],
-    points: 0,
-  },
-  {
-    id: 3,
-    name: 'Mike',
-    avatar: '/EvoCapture/avatar/Mike.webp',
-    gems: { metal: 0, wood: 0, water: 0, fire: 0, earth: 0, special: 0 },
-    tokens: { metal: 0, wood: 0, water: 0, fire: 0, earth: 0, special: 0 },
-    capturedcards: [],
-    reservedCards: [],
-    points: 0,
-  },
-  {
-    id: 4,
-    name: 'Lucy',
-    avatar: '/EvoCapture/avatar/Lucy.webp',
-    gems: { metal: 0, wood: 0, water: 0, fire: 0, earth: 0, special: 0 },
-    tokens: { metal: 0, wood: 0, water: 0, fire: 0, earth: 0, special: 0 },
-    capturedcards: [],
-    reservedCards: [],
-    points: 0,
-  },
-  {
-    id: 5,
-    name: 'David',
-    avatar: '/EvoCapture/avatar/David.webp',
-    gems: { metal: 0, wood: 0, water: 0, fire: 0, earth: 0, special: 0 },
-    tokens: { metal: 0, wood: 0, water: 0, fire: 0, earth: 0, special: 0 },
-    capturedcards: [],
-    reservedCards: [],
-    points: 0,
-  },
-  {
-    id: 6,
-    name: 'Anna',
-    avatar: '/EvoCapture/avatar/Anna.webp',
-    gems: { metal: 0, wood: 0, water: 0, fire: 0, earth: 0, special: 0 },
-    tokens: { metal: 0, wood: 0, water: 0, fire: 0, earth: 0, special: 0 },
-    capturedcards: [],
-    reservedCards: [],
-    points: 0,
-  },
-];
-
 // 洗牌函数：返回一个新的洗牌数组
 function shuffle<T>(array: T[]): T[] {
   const newArr = [...array];
@@ -139,7 +75,7 @@ const initialState: GameState = {
 
   tokensPool: TokensPool,
   tokensSelected: TokensSelected,
-  players: Players,
+  players: [],
   currentPlayerIndex: 0,
   isGameOver: false,
   hasStarted: false,
@@ -148,6 +84,7 @@ const initialState: GameState = {
 };
 
 type Action =
+  | { type: 'JOIN_GAME'; payload: Player }
   | { type: 'INIT_GAME' }
   | { type: 'CHANGE_PERIOD'; payload: string }
   | { type: 'STASH' }
@@ -188,13 +125,21 @@ function drawCard(board: Card[], deck: Card[]): { updatedBoard: Card[]; updatedD
 
 function gameReducer(state: GameState, action: Action): GameState {
   switch (action.type) {
+    case 'JOIN_GAME': {
+      // 限制最大玩家数为6，并防止重复加入
+      if (state.players.length < 6 && !state.players.find(p => p.id === action.payload.id)) {
+        return { ...state, players: [...state.players, action.payload] };
+      }
+      return state;
+    }
     case 'INIT_GAME': {
       const newDeck1 = shuffle([...initialState.deckLevel1]);
       const newDeck2 = shuffle([...initialState.deckLevel2]);
       const newDeck3 = shuffle([...initialState.deckLevel3]);
       const newDeck9 = shuffle([...initialState.deckLevel9]);
 
-      const playerCount = initialState.players.length;
+      // 根据玩家数量设置公共桌面卡牌数量
+      const playerCount = state.players.length;
       let level1 = playerCount <= 3 ? 3 : playerCount <= 4 ? 4 : 5;
       let level2 = level1 > 1 ? level1 - 1 : 1;
       let level3 = level2 > 1 ? level2 - 1 : 1;
@@ -205,9 +150,10 @@ function gameReducer(state: GameState, action: Action): GameState {
       const newBoard3 = newDeck3.splice(0, level3);
       const newBoard9 = newDeck9.splice(0, level9);
 
+      let count = 2 * playerCount - 1 > 4 ? 2 * playerCount - 1 : 4;
       const updatedTokensPool = state.tokensPool.map(token => ({
         ...token,
-        count: playerCount + 1,
+        count: count,
       }));
 
       return {
@@ -222,6 +168,7 @@ function gameReducer(state: GameState, action: Action): GameState {
         boardLevel9: newBoard9,
         tokensPool: updatedTokensPool,
         tokensSelected: [],
+        players: state.players,
         isGameOver: false,
         hasStarted: true,
         period: Period.ready,
@@ -491,13 +438,13 @@ function gameReducer(state: GameState, action: Action): GameState {
       return newState;
     }
     case 'CHECK_GAME_END_ONLY': {
-      const gameOver = state.players.some(player => player.points >= 3);
+      const gameOver = state.players.some(player => player.points >= 3 * (state.players.length));
       if (gameOver) {
         return { ...state, isGameOver: true };
       } else return state
     }
     case 'CHECK_GAME_END_WITH_NEXT_TURN': {
-      const gameOver = state.players.some(player => player.points >= 3);
+      const gameOver = state.players.some(player => player.points >= 3 * (state.players.length));
       if (gameOver) {
         return { ...state, isGameOver: true };
       } else return { ...state, captured: false, period: 'ready', currentPlayerIndex: (state.currentPlayerIndex + 1) % state.players.length };

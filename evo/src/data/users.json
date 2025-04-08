@@ -1,0 +1,147 @@
+{
+    "Players": [{
+            "id": 1,
+            "name": "John",
+            "avatar": "/EvoCapture/avatar/John.webp",
+            "gems": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "tokens": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "capturedcards": [],
+            "reservedCards": [],
+            "points": 0
+        },
+        {
+            "id": 2,
+            "name": "Emma",
+            "avatar": "/EvoCapture/avatar/Emma.webp",
+            "gems": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "tokens": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "capturedcards": [],
+            "reservedCards": [],
+            "points": 0
+        },
+        {
+            "id": 3,
+            "name": "Mike",
+            "avatar": "/EvoCapture/avatar/Mike.webp",
+            "gems": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "tokens": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "capturedcards": [],
+            "reservedCards": [],
+            "points": 0
+        },
+        {
+            "id": 4,
+            "name": "Lucy",
+            "avatar": "/EvoCapture/avatar/Lucy.webp",
+            "gems": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "tokens": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "capturedcards": [],
+            "reservedCards": [],
+            "points": 0
+        },
+        {
+            "id": 5,
+            "name": "David",
+            "avatar": "/EvoCapture/avatar/David.webp",
+            "gems": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "tokens": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "capturedcards": [],
+            "reservedCards": [],
+            "points": 0
+        },
+        {
+            "id": 6,
+            "name": "Anna",
+            "avatar": "/EvoCapture/avatar/Anna.webp",
+            "gems": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "tokens": {
+                "metal": 0,
+                "wood": 0,
+                "water": 0,
+                "fire": 0,
+                "earth": 0,
+                "special": 0
+            },
+            "capturedcards": [],
+            "reservedCards": [],
+            "points": 0
+        }
+    ]
+}
