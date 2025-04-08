@@ -1,5 +1,6 @@
 export interface Card {
     id: number;
+    name: string;          // 卡牌名称
     level: number;        // 卡牌等级：1, 2, 3 等
     cost: { [gemType: string]: number };  // 消耗宝石数量，例如 { red: 2, blue: 1 }
     rewardGemType: string;  // 购买后获得的永久宝石类型（颜色）

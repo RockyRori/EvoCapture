@@ -16,3 +16,41 @@
     font-size: 16px;
     cursor: pointer;
 }
+
+/* 通用按钮样式 */
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* 各个按钮的个性化样式 */
+.btn-gem {
+    background-color: #4997e6;
+    /* 蓝色 */
+    color: #fff;
+}
+
+.btn-reserve {
+    background-color: #a600cf;
+    /* 绿色 */
+    color: #fff;
+}
+
+.btn-capture {
+    background-color: #fac1c1;
+    /* 红色 */
+    color: #ffffff;
+}
+
+.btn-skip {
+    background-color: #ccc;
+    /* 灰色 */
+    color: #333;
+}
+
+/* 鼠标悬停时的样式 */
+.btn:hover {
+    opacity: 0.8;
+}

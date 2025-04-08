@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { memo } from 'react';
 import type { Player } from '../models/Player';
-import CardComponent from './Card';
 import './PlayerBoard.css';
 
 // 定义宝石类型到颜色的映射表
@@ -17,32 +16,58 @@ interface PlayerBoardProps {
     player: Player;
 }
 
+// 将单个宝石渲染为一个独立组件
+interface OwnedGemProps {
+    gemType: string;
+    value: number;
+}
+
+const OwnedGem: React.FC<OwnedGemProps> = ({ gemType, value }) => {
+    const backgroundColor = gemColors[gemType] || '#ccc';
+    return (
+        <div className="owned-gem" style={{ backgroundColor }}>
+            {value}
+        </div>
+    );
+};
+
 const PlayerBoard: React.FC<PlayerBoardProps> = ({ player }) => {
     return (
         <div className="player-board">
+            {/* 保留的卡牌展示区域 */}
             <div className="cards-reserved">
-                {player.reservedCards.map((card) => (
-                    <CardComponent key={card.id} card={card} place={player.name} />
+                reserved:
+                {player.reservedCards.length > 0 ? (
+                    player.reservedCards.map((card) => (
+                        <span className="cards-reserved-name" key={card.id}>
+                            {card.name}
+                        </span>
+                    ))
+                ) : (
+                    <span className="cards-reserved-name">None</span>
+                )}
+            </div>
+
+            {/* 玩家头部（名称、分数、头像） */}
+            <div className="player-header">
+                <div className="player-name">
+                    {player.name}: {player.points}
+                    <img
+                        src={player.avatar}
+                        alt="player-avatar"
+                        className="player-image"
+                    />
+                </div>
+            </div>
+
+            {/* 玩家持有的 tokens */}
+            <div className="tokens">
+                {Object.entries(player.tokens).map(([gemType, count]) => (
+                    <OwnedGem key={gemType} gemType={gemType} value={Number(count)} />
                 ))}
             </div>
-            <div className="player-header">
-                <div className="player-name">{player.name}: {player.points}<img src={player.avatar} alt="player-avatar" className="player-image" /></div>
-            </div>
-            <div className="tokens">
-                {Object.entries(player.tokens).map(([gemType, value]) => {
-                    // 根据 gemType 决定消耗宝石的圆圈颜色
-                    const costColor = gemColors[gemType] ?? '#ccc';
-                    return (
-                        <div
-                            key={gemType}
-                            className="owned-gem"
-                            style={{ backgroundColor: costColor }}
-                        >
-                            {value}
-                        </div>
-                    );
-                })}
-            </div>
+
+            {/* 玩家拥有的卡牌展示 */}
             <div className="cards-owned">
                 {player.cards.map((card) => (
                     <div key={card.id} className="owned-card">
@@ -54,4 +79,4 @@ const PlayerBoard: React.FC<PlayerBoardProps> = ({ player }) => {
     );
 };
 
-export default PlayerBoard;
+export default memo(PlayerBoard);

@@ -9,6 +9,30 @@
     align-items: left;
 }
 
+.cards-reserved {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    font-size: 24px;
+    color: #ad0a7d;
+    text-shadow:
+        0 0 2px rgba(0, 0, 0, 0.5),
+        0 0 4px rgba(255, 215, 0, 0.3);
+}
+
+.cards-reserved-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    font-size: 19px;
+    color: #000000;
+    text-shadow:
+        0 0 2px rgba(0, 0, 0, 0.5),
+        0 0 4px rgba(255, 215, 0, 0.3);
+}
+
 .player-header {
     display: flex;
     flex-direction: row;
@@ -48,6 +72,8 @@
     gap: 4px;
     padding: 4px;
 }
+
+
 
 .cards-owned {
     display: flex;

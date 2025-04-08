@@ -234,7 +234,10 @@ type Action =
   | { type: 'CONFIRM_TOKENS' }
   | { type: 'CAPTURE_CREATURE'; payload: Card, place: string }
   | { type: 'RESERVE_CREATURE'; payload: Card }
-  | { type: 'CHECK_GAME_END' };
+  | { type: 'CHECK_GAME_END' }
+  | { type: 'NONE' }
+  ;
+
 
 // 辅助函数：检查当前玩家是否能支付 cost
 function canAfford(tokens: { [gem: string]: number }, cost: { [gem: string]: number }): boolean {
@@ -454,7 +457,7 @@ function gameReducer(state: GameState, action: Action): GameState {
       // 5-8：根据卡牌归属分别处理
       if (action.place === 'public') {
         // 从对应等级的桌面中移除该卡牌
-        let newBoard = [];
+        let newBoard: Card[] = [];
         if (action.payload.level === 1) {
           newBoard = state.boardLevel1.filter((c) => c.id !== action.payload.id);
         } else if (action.payload.level === 2) {
@@ -466,8 +469,9 @@ function gameReducer(state: GameState, action: Action): GameState {
         }
 
         // 补充逻辑：从对应等级的牌库中抽一张卡补到桌面（注意克隆牌库数组，避免直接修改原状态）
-        let newDeck = [];
-        let updatedBoard = newBoard;
+        let newDeck: Card[] = [];
+        // 修正前代码存在在赋值前使用变量“newBoard”的问题，这里先将 updatedBoard 初始化为 newBoard 对应的空数组
+        let updatedBoard: Card[] = [];
         if (action.payload.level === 1) {
           newDeck = [...state.deckLevel1];
           if (newDeck.length > 0) {

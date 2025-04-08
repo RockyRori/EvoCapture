@@ -1,5 +1,5 @@
 // src/components/Card.tsx
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useGameStore } from '../store/GameStore';
 import type { Card as CardModel } from '../models/Card';
 import './Card.css';
@@ -19,72 +19,75 @@ interface CardProps {
     place: string;
 }
 
+// 提取卡牌头部显示组件
+interface CardHeaderProps {
+    points: number;
+    rewardGemType: string;
+    rewardGemCount: number;
+}
+
+const CardHeader: React.FC<CardHeaderProps> = ({ points, rewardGemType, rewardGemCount }) => {
+    const backgroundColor = gemColors[rewardGemType] ?? '#000000';
+    return (
+        <div className="card-header">
+            <div className="card-points">{points}</div>
+            <div className="card-rewards">
+                {Array.from({ length: rewardGemCount }).map((_, i) => (
+                    <div key={i} className="card-reward" style={{ backgroundColor }} />
+                ))}
+            </div>
+        </div>
+    );
+};
+
 const CardComponent: React.FC<CardProps> = ({ card, place }) => {
     const { state, dispatch } = useGameStore();
     const currentPlayer = state.players[state.currentPlayerIndex];
 
-    // 点击卡牌时执行选择逻辑
-    const onSelect = () => {
-        if (state.period === 'capture' && place === 'public' || state.period === 'capture' && place === currentPlayer.name) { dispatch({ type: 'CAPTURE_CREATURE', payload: card, place: place }); }
-        if (state.period === 'reserve' && place === 'public' && currentPlayer.reservedCards.length <= 0) { dispatch({ type: 'RESERVE_CREATURE', payload: card }); }
+    // 使用 useCallback 优化 onSelect 函数，梳理条件逻辑
+    const onSelect = useCallback(() => {
+        if (state.period === 'capture') {
+            if (place === 'public' || place === currentPlayer.name) {
+                dispatch({ type: 'CAPTURE_CREATURE', payload: card, place });
+            }
+        } else if (state.period === 'reserve') {
+            if (place === 'public' && currentPlayer.reservedCards.length <= 0) {
+                dispatch({ type: 'RESERVE_CREATURE', payload: card });
+            }
+        }
         dispatch({ type: 'CHECK_GAME_END' });
-    };
-    // const onCapture = () => {
-    //     if (state.period === 'capture') { dispatch({ type: 'CAPTURE_CREATURE', payload: card }); }
-    //     dispatch({ type: 'CHECK_GAME_END' });
-    // };
-    // const onReserve = () => {
-    //     if (state.period === 'reserve') { dispatch({ type: 'RESERVE_CREATURE', payload: card }); }
-    //     dispatch({ type: 'CHECK_GAME_END' });
-    // };
+    }, [state.period, place, currentPlayer, card, dispatch]);
 
-    // 2. 根据 rewardGemType 决定卡牌背景和左上角点数圆圈颜色
+    // 辅助函数渲染卡牌成本
+    const renderCost = () => (
+        <div className="card-cost">
+            {Object.entries(card.cost).map(([gemType, value]) => {
+                const costColor = gemColors[gemType] ?? '#ccc';
+                return (
+                    <div key={gemType} className="cost-gem" style={{ backgroundColor: costColor }}>
+                        {value}
+                    </div>
+                );
+            })}
+        </div>
+    );
+
+    // 根据 rewardGemType 决定卡牌背景颜色
     const rewardColor = gemColors[card.rewardGemType] ?? '#000000';
 
     return (
-        <div
-            className="card"
-            onClick={onSelect}
-            style={{ backgroundColor: rewardColor }}
-        >   <div className="card-content">
-                {/* 卡牌头部：左上角点数 & 右上角永久宝石 */}
-                <div className="card-header">
-                    {/* 左上角点数方块 */}
-                    <div className="card-points">
-                        {card.points}
-                    </div>
-                    {/* 右上角永久宝石圆球 */}
-                    {/* 右上角永久宝石：根据 rewardGemCount 显示对应数量的实心圆 */}
-                    <div className="card-rewards">
-                        {Array.from({ length: card.rewardGemCount }).map((_, i) => (
-                            <div
-                                key={i}
-                                className="card-reward"
-                                style={{ backgroundColor: rewardColor }}
-                            />
-                        ))}
-                    </div>
-                </div>
-
+        <div className="card" onClick={onSelect} style={{ backgroundColor: rewardColor }}>
+            <div className="card-content">
+                {/* 使用抽取出来的 CardHeader 组件 */}
+                <CardHeader
+                    points={card.points}
+                    rewardGemType={card.rewardGemType}
+                    rewardGemCount={card.rewardGemCount}
+                />
                 {/* 卡牌图片 */}
                 <img src={card.imageUrl} alt="Creature" className="card-image" />
-
-                {/* 购买需求宝石 */}
-                <div className="card-cost">
-                    {Object.entries(card.cost).map(([gemType, value]) => {
-                        // 根据 gemType 决定消耗宝石的圆圈颜色
-                        const costColor = gemColors[gemType] ?? '#ccc';
-                        return (
-                            <div
-                                key={gemType}
-                                className="cost-gem"
-                                style={{ backgroundColor: costColor }}
-                            >
-                                {value}
-                            </div>
-                        );
-                    })}
-                </div>
+                {/* 显示购买成本 */}
+                {renderCost()}
             </div>
         </div>
     );
