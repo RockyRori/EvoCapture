@@ -1,7 +1,7 @@
 # ​**​EvoCapture（精灵：进化收集）​**​  
 ​**​支持 1-6 人本地游玩 | 策略收集 & 进化对战​**​  
 
-![EvoCapture 游戏封面](/evo/public/cover.png)
+![EvoCapture 游戏封面](/evo/public/cover.jpg)
 
 ## ​**​🎮 游戏下载​**​  
 [无需下载点击即玩](https://rockyrori.github.io/EvoCapture/)
@@ -147,8 +147,6 @@ EvoCapture/
    npm run dev
    ```
 
-   启动后浏览器会自动打开 [http://localhost:3000](http://localhost:3000) 运行游戏。
-
 ---
 
 ## 游戏玩法
@@ -197,5 +195,5 @@ EvoCapture/
 
 ## 许可证
 
-本项目采用 [APGL 许可证](LICENSE)
+本项目采用 [AGPL 许可证](LICENSE)
 
