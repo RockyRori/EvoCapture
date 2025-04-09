@@ -251,6 +251,8 @@ function gameReducer(state: GameState, action: Action): GameState {
           action.payload === token.type &&
           token.count > 0 &&
           token.type !== 'special' &&
+          newTokensSelected.reduce((s: number, t: Token) => s + t.count, 0) + Object.values(state.players[state.currentPlayerIndex].tokens)
+            .reduce((sum, count) => sum + count, 0) < 11 &&
           (
             newTokensSelected.length === 0 ||
             (newTokensSelected.length === 1 && newTokensSelected.reduce((s, t) => s + t.count, 0) === 1) ||
@@ -502,7 +504,7 @@ function gameReducer(state: GameState, action: Action): GameState {
             // 更新当前玩家的信息：capturedcards 和 gems
             const newPlayers = newState.players.map((player, idx) => {
               if (idx === newState.currentPlayerIndex) {
-                return { ...player, capturedcards: newCaptured, gems: newPlayerGems };
+                return { ...player, capturedcards: newCaptured, gems: newPlayerGems, points: player.points - captured.points + evolveCard.points };
               }
               return player;
             });

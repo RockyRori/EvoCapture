@@ -99,6 +99,7 @@ const CardComponent: React.FC<CardProps> = ({ card, place }) => {
                     rewardGemCount={card.rewardGemCount}
                 />
                 {/* 卡牌图片 */}
+                <div>{card.id % 100}:{card.name}</div>
                 <img src={card.imageUrl} alt="Creature" className="card-image" />
                 {/* 显示购买成本 */}
                 {renderCost()}
