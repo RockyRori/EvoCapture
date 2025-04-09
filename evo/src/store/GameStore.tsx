@@ -28,16 +28,6 @@ const Period = {
   skip: 'skip',
 };
 
-// 洗牌函数：返回一个新的洗牌数组
-function shuffle<T>(array: T[]): T[] {
-  const newArr = [...array];
-  for (let i = newArr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-  }
-  return newArr;
-}
-
 export interface GameState {
   // 牌库：存放所有卡牌
   deckLevel1: Card[];
@@ -59,6 +49,7 @@ export interface GameState {
   hasStarted: boolean;
   captured: boolean;
   period: string;
+  winTarget: number;
 }
 
 // 初始状态：将所有卡牌放到 deck 里，board 为空
@@ -81,6 +72,7 @@ const initialState: GameState = {
   hasStarted: false,
   captured: false,
   period: Period.ready,
+  winTarget: 0,
 };
 
 type Action =
@@ -97,30 +89,14 @@ type Action =
   | { type: 'CHECK_GAME_END_ONLY' }
   | { type: 'CHECK_GAME_END_WITH_NEXT_TURN' };
 
-// 辅助函数：检查当前玩家是否能支付 cost
-function canAfford(tokens: { [gem: string]: number }, cost: { [gem: string]: number }): boolean {
-  for (let gem in cost) {
-    if ((tokens[gem] || 0) < cost[gem]) return false;
+// 洗牌函数：返回一个新的洗牌数组
+function shuffle<T>(array: T[]): T[] {
+  const newArr = [...array];
+  for (let i = newArr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
   }
-  return true;
-}
-
-// 辅助函数：从 tokens 中减去 cost
-function subtractCost(tokens: { [gem: string]: number }, cost: { [gem: string]: number }): { [gem: string]: number } {
-  const newTokens = { ...tokens };
-  for (let gem in cost) {
-    newTokens[gem] = (newTokens[gem] || 0) - cost[gem];
-  }
-  return newTokens;
-}
-
-// 辅助函数：抽取一张卡并更新对应等级的桌面与牌库
-function drawCard(board: Card[], deck: Card[]): { updatedBoard: Card[]; updatedDeck: Card[] } {
-  if (deck.length > 0) {
-    const drawn = deck.slice(0, 1);
-    return { updatedBoard: [...board, ...drawn], updatedDeck: deck.slice(1) };
-  }
-  return { updatedBoard: board, updatedDeck: deck };
+  return newArr;
 }
 
 function distributeTokens(players: Player[]): Player[] {
@@ -132,7 +108,7 @@ function distributeTokens(players: Player[]): Player[] {
     // 初始化所有宝石，每种宝石都获得1个
     const tokens: { [gemType: string]: number } = {};
     gemTypes.forEach(gem => {
-      tokens[gem] = 1;
+      tokens[gem] = 11;
     });
 
     // 确定额外奖励宝石数量（第一个玩家无额外奖励）
@@ -149,6 +125,57 @@ function distributeTokens(players: Player[]): Player[] {
       tokens: tokens,
     };
   });
+}
+
+// 辅助函数：检查当前玩家是否能支付 cost
+function canAfford(
+  tokens: { [gem: string]: number },
+  gems: { [gem: string]: number },
+  cost: { [gem: string]: number }
+): boolean {
+  for (let gem in cost) {
+    const available = (tokens[gem] || 0) + (gems[gem] || 0);
+    if (available < cost[gem]) return false;
+  }
+  return true;
+}
+
+interface SubtractCostResult {
+  newTokens: { [gem: string]: number };
+  tokenPayment: { [gem: string]: number };
+}
+
+// 辅助函数：从 tokens 中减去 gems 不足以支付的 cost 部分，并返回 tokenPayment 记录
+function subtractCost(
+  tokens: { [gem: string]: number },
+  gems: { [gem: string]: number },
+  cost: { [gem: string]: number }
+): SubtractCostResult {
+  const newTokens = { ...tokens };
+  const tokenPayment: { [gem: string]: number } = {};
+
+  // 遍历 cost 中的每种宝石
+  for (let gem in cost) {
+    const permanentGemCount = gems[gem] || 0;       // 永久宝石数量（默认为0）
+    const requiredCost = cost[gem];                  // 本次所需数量
+    // 计算需要额外用 token 补齐的数量
+    const payment = requiredCost > permanentGemCount ? requiredCost - permanentGemCount : 0;
+    tokenPayment[gem] = payment;
+    // 从 tokens 中扣除补齐数量
+    newTokens[gem] = (tokens[gem] || 0) - payment;
+  }
+
+  return { newTokens, tokenPayment };
+}
+
+
+// 辅助函数：抽取一张卡并更新对应等级的桌面与牌库
+function drawCard(board: Card[], deck: Card[]): { updatedBoard: Card[]; updatedDeck: Card[] } {
+  if (deck.length > 0) {
+    const drawn = deck.slice(0, 1);
+    return { updatedBoard: [...board, ...drawn], updatedDeck: deck.slice(1) };
+  }
+  return { updatedBoard: board, updatedDeck: deck };
 }
 
 function gameReducer(state: GameState, action: Action): GameState {
@@ -186,6 +213,9 @@ function gameReducer(state: GameState, action: Action): GameState {
 
       // 游戏开始时，根据玩家加入顺序动态分配宝石
       const updatedPlayers = distributeTokens(state.players);
+      // 设计胜利目标
+      let target = 3 * (state.players.length) + 4
+
       return {
         ...initialState,
         deckLevel1: newDeck1,
@@ -202,6 +232,7 @@ function gameReducer(state: GameState, action: Action): GameState {
         isGameOver: false,
         hasStarted: true,
         period: Period.ready,
+        winTarget: target,
       };
     }
     case 'CHANGE_PERIOD':
@@ -266,27 +297,36 @@ function gameReducer(state: GameState, action: Action): GameState {
     case 'CAPTURE_CREATURE': {
       const currentPlayer = state.players[state.currentPlayerIndex];
       if (action.place !== 'public' && action.place !== currentPlayer.name) return state;
-      if (!canAfford(currentPlayer.tokens, action.payload.cost)) return state;
-
-      const newPlayerTokens = subtractCost(currentPlayer.tokens, action.payload.cost);
+      // 买得起吗
+      if (!canAfford(currentPlayer.tokens, currentPlayer.gems, action.payload.cost)) return state;
+      // 买得起，扣除
+      const { newTokens: newPlayerTokens, tokenPayment: tokenPayment } = subtractCost(currentPlayer.tokens, currentPlayer.gems, action.payload.cost);
+      // 使用 tokenPayment 更新 token 池
       const updatedPool = state.tokensPool.map(token => {
-        if (action.payload.cost[token.type]) {
-          return { ...token, count: token.count + action.payload.cost[token.type] };
+        if (tokenPayment[token.type]) {
+          return { ...token, count: token.count + tokenPayment[token.type] };
         }
         return token;
       });
+      // 增加永久宝石
+      const newPlayerGems = {
+        ...currentPlayer.gems,
+        [action.payload.rewardGemType]: (currentPlayer.gems[action.payload.rewardGemType] || 0) + action.payload.rewardGemCount,
+      };
 
       const newPlayers = state.players.map((player, idx) => {
         if (idx === state.currentPlayerIndex) {
           return {
             ...player,
             tokens: newPlayerTokens,
+            gems: newPlayerGems,
             capturedcards: [...player.capturedcards, action.payload],
             points: player.points + action.payload.points,
           };
         }
         return player;
       });
+
 
       let newState = { ...state, players: newPlayers, tokensPool: updatedPool };
       if (action.place === 'public') {
@@ -443,13 +483,26 @@ function gameReducer(state: GameState, action: Action): GameState {
             const updatedBoard = boardArray.filter((_, idx) => idx !== cardIndex);
             newState = { ...newState, [boardArrayName]: updatedBoard };
 
-            // 更新当前玩家：移除原 captured 卡牌，并将进化后的卡牌加入 capturedcards
+            // 更新当前玩家的 capturedcards：
+            // 先复制 capturedcards 数组，然后移除原卡，再加入进化卡牌
             const newCaptured = currentPlayer.capturedcards.slice();
             newCaptured.splice(i, 1); // 移除原卡
-            newCaptured.push(evolveCard); // 加入进化卡牌
+
+            // 更新永久宝石:
+            // 移除原卡的增益，并加入进化卡牌的增益
+            const newPlayerGems = {
+              ...currentPlayer.gems,
+              [captured.rewardGemType]: (currentPlayer.gems[captured.rewardGemType] || 0) - captured.rewardGemCount,
+              [evolveCard.rewardGemType]: (currentPlayer.gems[evolveCard.rewardGemType] || 0) + evolveCard.rewardGemCount,
+            };
+
+            // 将进化卡牌加入 capturedcards
+            newCaptured.push(evolveCard);
+
+            // 更新当前玩家的信息：capturedcards 和 gems
             const newPlayers = newState.players.map((player, idx) => {
               if (idx === newState.currentPlayerIndex) {
-                return { ...player, capturedcards: newCaptured };
+                return { ...player, capturedcards: newCaptured, gems: newPlayerGems };
               }
               return player;
             });
@@ -468,13 +521,13 @@ function gameReducer(state: GameState, action: Action): GameState {
       return newState;
     }
     case 'CHECK_GAME_END_ONLY': {
-      const gameOver = state.players.some(player => player.points >= 3 * (state.players.length));
+      const gameOver = state.players.some(player => player.points >= state.winTarget);
       if (gameOver) {
         return { ...state, isGameOver: true };
       } else return state
     }
     case 'CHECK_GAME_END_WITH_NEXT_TURN': {
-      const gameOver = state.players.some(player => player.points >= 3 * (state.players.length));
+      const gameOver = state.players.some(player => player.points >= state.winTarget);
       if (gameOver) {
         return { ...state, isGameOver: true };
       } else return { ...state, captured: false, period: 'ready', currentPlayerIndex: (state.currentPlayerIndex + 1) % state.players.length };
