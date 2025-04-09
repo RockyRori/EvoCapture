@@ -22,7 +22,7 @@ const Lobby: React.FC = () => {
     };
 
     const checkRules = () => {
-        window.open('https://github.com/RockyRori/EvoCapture/blob/main/README.md', '_blank');
+        window.open('https://github.com/RockyRori/EvoCapture/blob/main/RULE.md', '_blank');
     };
 
     return (
@@ -30,7 +30,7 @@ const Lobby: React.FC = () => {
             <h1>EvoCapture - 大厅</h1>
             <div className="available-roles">
                 <h2>游戏规则</h2>
-                <button className="rule" onClick={checkRules}>https://github.com/RockyRori/EvoCapture/blob/main/README.md</button>
+                <button className="rule" onClick={checkRules}>https://github.com/RockyRori/EvoCapture/blob/main/RULE.md</button>
                 <h2>选择角色加入游戏</h2>
                 {AvailableRoles.map(role => (
                     <div key={role.id} className="role-item">
