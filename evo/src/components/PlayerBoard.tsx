@@ -21,7 +21,14 @@ interface OwnedGemProps {
     gemType: string;
     value: number;
 }
-
+const OwnedToken: React.FC<OwnedGemProps> = ({ gemType, value }) => {
+    const backgroundColor = gemColors[gemType] || '#ccc';
+    return (
+        <div className="owned-token" style={{ backgroundColor }}>
+            {value}
+        </div>
+    );
+};
 const OwnedGem: React.FC<OwnedGemProps> = ({ gemType, value }) => {
     const backgroundColor = gemColors[gemType] || '#ccc';
     return (
@@ -61,8 +68,14 @@ const PlayerBoard: React.FC<PlayerBoardProps> = ({ player }) => {
             </div>
 
             {/* 玩家持有的 tokens */}
-            <div className="tokens">
+            <div className="tokens-board">
                 {Object.entries(player.tokens).map(([gemType, count]) => (
+                    <OwnedToken key={gemType} gemType={gemType} value={Number(count)} />
+                ))}
+            </div>
+            {/* 玩家持有的 gems */}
+            <div className="gems-board">
+                {Object.entries(player.gems).map(([gemType, count]) => (
                     <OwnedGem key={gemType} gemType={gemType} value={Number(count)} />
                 ))}
             </div>

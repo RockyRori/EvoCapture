@@ -123,6 +123,34 @@ function drawCard(board: Card[], deck: Card[]): { updatedBoard: Card[]; updatedD
   return { updatedBoard: board, updatedDeck: deck };
 }
 
+function distributeTokens(players: Player[]): Player[] {
+  const gemTypes = ['metal', 'wood', 'water', 'fire', 'earth', 'special'];
+  // 额外奖励宝石的种类，排除 special
+  const rewardGemTypes = gemTypes.filter(gem => gem !== 'special');
+
+  return players.map((player, index) => {
+    // 初始化所有宝石，每种宝石都获得1个
+    const tokens: { [gemType: string]: number } = {};
+    gemTypes.forEach(gem => {
+      tokens[gem] = 1;
+    });
+
+    // 确定额外奖励宝石数量（第一个玩家无额外奖励）
+    const extraCount = index;
+    // 为额外奖励宝石随机分配种类（不能选择 special）
+    for (let i = 0; i < extraCount; i++) {
+      const randomIndex = Math.floor(Math.random() * rewardGemTypes.length);
+      const randomGem = rewardGemTypes[randomIndex];
+      tokens[randomGem] += 1;
+    }
+
+    return {
+      ...player,
+      tokens: tokens,
+    };
+  });
+}
+
 function gameReducer(state: GameState, action: Action): GameState {
   switch (action.type) {
     case 'JOIN_GAME': {
@@ -156,6 +184,8 @@ function gameReducer(state: GameState, action: Action): GameState {
         count: count,
       }));
 
+      // 游戏开始时，根据玩家加入顺序动态分配宝石
+      const updatedPlayers = distributeTokens(state.players);
       return {
         ...initialState,
         deckLevel1: newDeck1,
@@ -168,7 +198,7 @@ function gameReducer(state: GameState, action: Action): GameState {
         boardLevel9: newBoard9,
         tokensPool: updatedTokensPool,
         tokensSelected: [],
-        players: state.players,
+        players: updatedPlayers,
         isGameOver: false,
         hasStarted: true,
         period: Period.ready,

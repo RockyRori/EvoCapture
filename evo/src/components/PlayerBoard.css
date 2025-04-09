@@ -1,8 +1,8 @@
 .player-board {
     border: 1px solid #ccc;
     padding: 8px;
-    width: 120px;
-    min-height: 160px;
+    max-width: 150px;
+    min-height: 230px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,11 +58,27 @@
     display: block;
 }
 
-.tokens {
+.tokens-board {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: left;
+}
+
+.gems-board {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: left;
+}
+
+.owned-token {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 16%;
 }
 
 .owned-gem {
@@ -70,10 +86,10 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 4px;
-    padding: 4px;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
 }
-
-
 
 .cards-owned {
     display: flex;
@@ -83,7 +99,7 @@
 
 .owned-card {
     width: 40px;
-    height: 60px;
+    height: 50px;
 }
 
 .owned-card img {

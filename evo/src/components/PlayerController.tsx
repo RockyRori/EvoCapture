@@ -51,13 +51,13 @@ const PlayerController: React.FC = () => {
           拿精灵球
         </button>
         <button className="btn btn-reserve" onClick={periodReserveCreature}>
-          大师球捉
+          拿大师球
         </button>
         <button className="btn btn-capture" onClick={periodCaptureCreature}>
           捕获精灵
         </button>
         <button className="btn btn-evolve" onClick={periodCaptureEvolve}>
-          进化阶段
+          自由进化
         </button>
         <button className="btn btn-skip" onClick={periodSkip}>
           跳过回合
