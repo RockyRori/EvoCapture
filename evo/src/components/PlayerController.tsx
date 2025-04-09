@@ -41,8 +41,15 @@ const PlayerController: React.FC = () => {
     });
   }, [changePeriod, dispatch]);
 
+  const checkRules = () => {
+    window.open('https://github.com/RockyRori/EvoCapture/blob/main/RULE.md', '_blank');
+  };
+
   return (
     <div className="player-controller">
+      <h3>
+        玩法跟【璀璨宝石：宝可梦】一样，点击看看规则<button className="rule" onClick={checkRules}>https://github.com/RockyRori/EvoCapture/blob/main/RULE.md</button>
+      </h3>
       <h2>
         Player {currentPlayer.name} now {state.period}
       </h2>

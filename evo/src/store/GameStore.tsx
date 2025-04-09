@@ -108,7 +108,7 @@ function distributeTokens(players: Player[]): Player[] {
     // 初始化所有宝石，每种宝石都获得1个
     const tokens: { [gemType: string]: number } = {};
     gemTypes.forEach(gem => {
-      tokens[gem] = 11;
+      tokens[gem] = 1;
     });
 
     // 确定额外奖励宝石数量（第一个玩家无额外奖励）
